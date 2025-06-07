@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Ultimate Mini-Guide for Privacy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -14,195 +14,216 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #222;
     }
 
-    a {
-      text-decoration: none;
-      color: #0077cc;
-    }
-
-    header.site-header {
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      padding: 1rem 0;
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 0 1rem;
     }
 
-    .logo {
+    .site-title {
       font-size: 1.8rem;
       font-weight: 800;
-      margin-bottom: 0.5rem;
     }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
+    .menu-toggle {
+      font-size: 1.6rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
     }
 
     nav a {
+      color: white;
       font-weight: 600;
-      color: #444;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      display: block;
     }
 
     nav a:hover {
-      color: #000;
+      text-decoration: underline;
     }
 
     .search-box {
-      margin-top: 0.5rem;
+      margin-top: 1rem;
     }
 
     .search-box input {
       width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
+      padding: 0.6rem;
       border-radius: 6px;
+      border: 1px solid #ccc;
     }
 
     .hero {
-      background: linear-gradient(to right, #212121, #333);
-      color: white;
-      padding: 3rem 1rem;
+      background-color: #fff;
+      padding: 2.5rem 1rem;
       text-align: center;
     }
 
     .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
     }
 
     .hero p {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
+      color: #555;
     }
 
     .btn {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #0077cc;
+      background-color: #0077cc;
       color: white;
-      border-radius: 8px;
+      padding: 0.7rem 1.3rem;
       font-weight: 600;
-      transition: 0.3s;
+      border-radius: 8px;
+      text-decoration: none;
     }
 
     .btn:hover {
-      background: #005fa3;
+      background-color: #005fa3;
     }
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
       margin: 2rem 0;
     }
 
     .features article {
-      background: white;
+      background-color: #fff;
+      padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      overflow: hidden;
       transition: transform 0.3s ease;
     }
 
     .features article:hover {
-      transform: translateY(-5px);
-    }
-
-    .features img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+      transform: translateY(-4px);
     }
 
     .features h3 {
-      margin: 1rem;
       font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
 
     .features p {
-      margin: 0 1rem 1rem;
+      font-size: 0.95rem;
+      color: #444;
     }
 
-    footer.site-footer {
+    footer {
+      background-color: #f1f1f1;
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #f1f1f1;
       font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 0;
+        position: static;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .search-box {
+        margin-top: 0;
+        margin-left: auto;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
+  <header>
     <div class="container">
-      <h1 class="logo">The Ultimate Mini-Guide for Privacy</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="osint.html">OSINT</a></li>
-          <li><a href="opsec.html">OPSEC</a></li>
-          <li><a href="survival.html">Analog Survival</a></li>
-          <li><a href="money.html">Money = Privacy</a></li>
-          <li><a href="consult.html">Consultation</a></li>
-        </ul>
+      <div class="site-title">The Ultimate Mini-Guide for Privacy</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="osint.html">OSINT</a>
+        <a href="opsec.html">OPSEC</a>
+        <a href="survival.html">Analog Survival</a>
+        <a href="money.html">Money = Privacy</a>
+        <a href="consult.html">Consultation</a>
+        <div class="search-box">
+          <input type="text" id="siteSearch" placeholder="Search entire site...">
+        </div>
       </nav>
-      <div class="search-box">
-        <input type="text" id="siteSearch" placeholder="Search entire site...">
-      </div>
     </div>
   </header>
 
-  <main class="home-content">
+  <main class="container">
     <section class="hero">
-      <div class="container">
-        <h2>Live Freely. Think Critically. Stay Hidden.</h2>
-        <p>Explore actionable privacy strategies, analog survival skills, and deep OPSEC methods to live off-grid in a digital world.</p>
-        <a href="consult.html" class="btn">Request Private Consultation</a>
-      </div>
+      <h2>Live Freely. Think Critically. Stay Hidden.</h2>
+      <p>Explore actionable privacy strategies, analog survival skills, and deep OPSEC methods to live off-grid in a digital world.</p>
+      <a href="consult.html" class="btn">Request Private Consultation</a>
     </section>
 
-    <section class="features container">
+    <section class="features">
       <article>
-        <img src="images/osint.jpg" alt="OSINT Tools" />
         <h3><a href="osint.html">Open Source Intelligence</a></h3>
-        <p>Master the art of finding information using legal and public tools. From usernames to geo-tagging, learn it all.</p>
+        <p>Master the art of finding information using public tools. From usernames to geo-tagging, learn the techniques step-by-step.</p>
       </article>
       <article>
-        <img src="images/opsec.jpg" alt="OPSEC" />
         <h3><a href="opsec.html">Digital OPSEC</a></h3>
-        <p>Protect your digital identity with zero-trust methods. Tools, mindset, and routines broken down for you.</p>
+        <p>Protect your digital identity with zero-trust methods. Learn the mindset, tools, and routines that truly keep you safe.</p>
       </article>
       <article>
-        <img src="images/analog.jpg" alt="Analog Survival" />
         <h3><a href="survival.html">Analog Survival</a></h3>
-        <p>Live without digital dependency. Learn how to use maps, button phones, and traditional tools with intent.</p>
+        <p>Live without digital dependency. Use maps, radios, button phones, and traditional tools like a ghost in the machine.</p>
       </article>
       <article>
-        <img src="images/money.jpg" alt="Offline Money" />
         <h3><a href="money.html">Money = Privacy</a></h3>
-        <p>Control your financial trail. Discover offline banking, cash flow protection, and hidden asset techniques.</p>
+        <p>Control your financial trail. Discover offline banking, hidden cashflow, and untraceable asset management techniques.</p>
       </article>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>Created by Anonymous. &copy; 2025</p>
-    </div>
+  <footer>
+    <p>Created by Anonymous. &copy; 2025</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("mainNav");
+      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 </body>
 </html>
