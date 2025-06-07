@@ -14,13 +14,13 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
+      background-color: #0e0e0e;
+      color: #e5e5e5;
     }
 
     header {
       background-color: #111;
-      color: white;
+      color: #f0f0f0;
       padding: 1rem 1.5rem;
       position: sticky;
       top: 0;
@@ -35,13 +35,13 @@
     .site-title {
       font-size: 1.5rem;
       font-weight: 800;
-      color: white; /* updated color */
+      color: #ffffff;
     }
 
     .menu-toggle {
       font-size: 1.6rem;
       background: none;
-      color: white;
+      color: #f0f0f0;
       border: none;
       cursor: pointer;
       display: block;
@@ -58,7 +58,7 @@
     }
 
     nav a {
-      color: white;
+      color: #e5e5e5;
       font-weight: 600;
       text-decoration: none;
       padding: 0.5rem 0;
@@ -66,7 +66,7 @@
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #00ffc3;
     }
 
     .search-box {
@@ -77,38 +77,44 @@
       width: 100%;
       padding: 0.6rem;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      background: #111;
+      color: #e5e5e5;
+      border: 1px solid #333;
     }
 
     .hero {
-      background-color: #fff;
+      background-color: #111;
       padding: 2.5rem 1rem;
       text-align: center;
+      border-radius: 1rem;
+      margin-top: 2rem;
     }
 
     .hero h2 {
       font-size: 2rem;
       margin-bottom: 0.8rem;
+      color: #00ffc3;
     }
 
     .hero p {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
-      color: #555;
+      color: #ccc;
     }
 
     .btn {
       display: inline-block;
-      background-color: #0077cc;
-      color: white;
+      background-color: #00ffc3;
+      color: #0e0e0e;
       padding: 0.7rem 1.3rem;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 12px;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #005fa3;
+      background-color: #00cfa5;
     }
 
     .features {
@@ -119,10 +125,10 @@
     }
 
     .features article {
-      background-color: #fff;
+      background-color: #111;
       padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 255, 195, 0.05);
       transition: transform 0.3s ease;
     }
 
@@ -133,19 +139,30 @@
     .features h3 {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
+      color: #00ffc3;
     }
 
     .features p {
       font-size: 0.95rem;
-      color: #444;
+      color: #ccc;
+    }
+
+    .features h3 a {
+      text-decoration: none;
+      color: #00ffc3;
+    }
+
+    .features h3 a:hover {
+      text-decoration: underline;
     }
 
     footer {
-      background-color: #f1f1f1;
+      background-color: #111;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #555;
+      color: #666;
+      border-top: 1px solid #222;
     }
 
     @media (min-width: 768px) {
