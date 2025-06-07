@@ -2,160 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Ultimate Mini-Guide for Privacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
+    /* Reset and base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
+      background-color: #0e0e0e;
+      color: #e5e5e5;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
     header {
-      background-color: #111;
-      color: white;
+      background-color: #111111;
+      color: #f0f0f0;
       padding: 1rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
+      border-bottom: 1px solid #222222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .site-title {
-      font-size: 1.5rem;
       font-weight: 800;
+      font-size: 1.5rem;
+      color: #00ffc3;
+      user-select: none;
     }
 
+    /* Menu toggle for mobile */
     .menu-toggle {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       background: none;
-      color: white;
       border: none;
+      color: #00ffc3;
       cursor: pointer;
       display: block;
-      position: absolute;
-      top: 1.2rem;
-      right: 1.5rem;
+      user-select: none;
     }
 
+    /* Navigation */
     nav {
       display: none;
       flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 1rem;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+      width: 100%;
     }
 
     nav a {
-      color: white;
+      color: #e5e5e5;
       font-weight: 600;
       text-decoration: none;
       padding: 0.5rem 0;
-      display: block;
+      font-size: 1rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+      user-select: none;
+    }
+    nav a:hover,
+    nav a:focus {
+      border-bottom: 2px solid #00ffc3;
+      outline: none;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
+    /* Search box */
     .search-box {
       margin-top: 1rem;
+      width: 100%;
     }
-
     .search-box input {
       width: 100%;
-      padding: 0.6rem;
+      padding: 0.6rem 1rem;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid #222222;
+      background-color: #111111;
+      color: #e5e5e5;
+      font-size: 1rem;
+      font-weight: 400;
+      user-select: text;
+    }
+    .search-box input::placeholder {
+      color: #666666;
+    }
+    .search-box input:focus {
+      outline: 2px solid #00ffc3;
+      background-color: #121212;
     }
 
-    .hero {
-      background-color: #fff;
-      padding: 2.5rem 1rem;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      color: #555;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: #0077cc;
-      color: white;
-      padding: 0.7rem 1.3rem;
-      font-weight: 600;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background-color: #005fa3;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .features article {
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .features article:hover {
-      transform: translateY(-4px);
-    }
-
-    .features h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .features p {
-      font-size: 0.95rem;
-      color: #444;
-    }
-
-    footer {
-      background-color: #f1f1f1;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
+    /* Show nav on desktop */
     @media (min-width: 768px) {
       nav {
         display: flex !important;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2rem;
         margin-top: 0;
-        position: static;
+        width: auto;
       }
 
       .menu-toggle {
@@ -163,9 +126,114 @@
       }
 
       .search-box {
-        margin-top: 0;
         margin-left: auto;
+        margin-top: 0;
+        width: 200px;
       }
+    }
+
+    /* Main */
+    main.container {
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #ccc;
+    }
+    .hero h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #00ffc3;
+      margin-bottom: 0.8rem;
+      user-select: none;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #999999;
+      margin-bottom: 1.5rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: none;
+    }
+    .btn {
+      background-color: #00ffc3;
+      color: #0e0e0e;
+      font-weight: 700;
+      padding: 0.75rem 1.8rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover,
+    .btn:focus {
+      background-color: #00d9ac;
+      outline: none;
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .features article {
+      background-color: #111111;
+      padding: 1.5rem 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,255,195,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .features article:hover,
+    .features article:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,255,195,0.3);
+      outline: none;
+    }
+
+    .features h3 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #00ffc3;
+      margin-bottom: 0.6rem;
+      user-select: none;
+    }
+    .features h3 a {
+      color: #00ffc3;
+      text-decoration: none;
+      user-select: none;
+    }
+    .features h3 a:hover,
+    .features h3 a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    .features p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.4;
+      user-select: text;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111111;
+      border-top: 1px solid #222222;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666666;
+      user-select: none;
     }
   </style>
 </head>
@@ -173,42 +241,42 @@
   <header>
     <div class="container">
       <div class="site-title">The Ultimate Mini-Guide for Privacy</div>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <nav id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="osint.html">OSINT</a>
-        <a href="opsec.html">OPSEC</a>
-        <a href="survival.html">Analog Survival</a>
-        <a href="money.html">Money = Privacy</a>
-        <a href="consult.html">Consultation</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+      <nav id="mainNav" role="navigation" aria-label="Primary navigation">
+        <a href="index.html" tabindex="0">Home</a>
+        <a href="osint.html" tabindex="0">OSINT</a>
+        <a href="opsec.html" tabindex="0">OPSEC</a>
+        <a href="survival.html" tabindex="0">Analog Survival</a>
+        <a href="money.html" tabindex="0">Money = Privacy</a>
+        <a href="consult.html" tabindex="0">Consultation</a>
         <div class="search-box">
-          <input type="text" id="siteSearch" placeholder="Search entire site...">
+          <input type="search" id="siteSearch" placeholder="Search entire site..." aria-label="Search entire site" />
         </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" role="banner">
       <h2>Live Freely. Think Critically. Stay Hidden.</h2>
       <p>Explore actionable privacy strategies, analog survival skills, and deep OPSEC methods to live off-grid in a digital world.</p>
-      <a href="consult.html" class="btn">Request Private Consultation</a>
+      <a href="consult.html" class="btn" role="button">Request Private Consultation</a>
     </section>
 
-    <section class="features">
-      <article>
+    <section class="features" role="main">
+      <article tabindex="0">
         <h3><a href="osint.html">Open Source Intelligence</a></h3>
         <p>Master the art of finding information using public tools. From usernames to geo-tagging, learn the techniques step-by-step.</p>
       </article>
-      <article>
+      <article tabindex="0">
         <h3><a href="opsec.html">Digital OPSEC</a></h3>
         <p>Protect your digital identity with zero-trust methods. Learn the mindset, tools, and routines that truly keep you safe.</p>
       </article>
-      <article>
+      <article tabindex="0">
         <h3><a href="survival.html">Analog Survival</a></h3>
         <p>Live without digital dependency. Use maps, radios, button phones, and traditional tools like a ghost in the machine.</p>
       </article>
-      <article>
+      <article tabindex="0">
         <h3><a href="money.html">Money = Privacy</a></h3>
         <p>Control your financial trail. Discover offline banking, hidden cashflow, and untraceable asset management techniques.</p>
       </article>
@@ -222,7 +290,12 @@
   <script>
     function toggleMenu() {
       const nav = document.getElementById("mainNav");
-      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+      if (nav.style.display === "flex") {
+        nav.style.display = "none";
+      } else {
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+      }
     }
   </script>
 </body>
