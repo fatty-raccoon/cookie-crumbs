@@ -93,7 +93,7 @@
     .hero h2 {
       font-size: 2rem;
       margin-bottom: 0.8rem;
-      color: #00ffc3;
+      color: #ffffff; /* changed to white */
     }
 
     .hero p {
@@ -104,17 +104,18 @@
 
     .btn {
       display: inline-block;
-      background-color: #00ffc3;
-      color: #0e0e0e;
+      background-color: transparent; /* transparent background */
+      color: #00ffc3; /* neon text */
       padding: 0.7rem 1.3rem;
       font-weight: 600;
       border-radius: 12px;
+      border: 2px solid #00ffc3; /* neon border */
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #00cfa5;
+      background-color: rgba(0, 255, 195, 0.1);
     }
 
     .features {
@@ -244,4 +245,4 @@
     }
   </script>
 </body>
-  </html>
+          </html>
