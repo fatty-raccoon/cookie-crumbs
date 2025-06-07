@@ -6,16 +6,12 @@
   <title>Consultation Form - OPSEC Vault</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet" />
 
   <style>
-    /* Reset & basics */
-    * {
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Barlow Condensed', sans-serif;
-      background: #000000; /* true black AMOLED */
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background: #000000;
       color: #f5f5f5;
       margin: 0;
       min-height: 100vh;
@@ -27,25 +23,28 @@
       overflow-x: hidden;
     }
     h1 {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Edu SA Hand', cursive;
       font-weight: 400;
-      font-size: 3.2rem;
-      letter-spacing: 6px;
-      color: #d4af7f; /* faded light gold */
-      text-transform: uppercase;
+      font-size: 3.6rem;
+      letter-spacing: 4px;
+      color: #d4af7f;
+      text-transform: none;
       margin: 0 0 0.3rem 0;
       user-select: none;
       text-shadow: 0 0 8px #d4af7f88;
+      text-align: center;
     }
     .tagline {
-      font-weight: 500;
-      font-size: 1.1rem;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
       color: #d4af7fcc;
-      letter-spacing: 1.1px;
+      letter-spacing: 1.2px;
       margin-bottom: 2rem;
       user-select: none;
       text-align: center;
-      max-width: 400px;
+      max-width: 420px;
+      line-height: 1.4;
     }
     form {
       background: #121212;
@@ -91,7 +90,7 @@
       border-radius: 12px;
       border: 2px solid transparent;
       font-size: 1rem;
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
       background: #1a1a1a;
       color: #f5f5f5;
       box-shadow:
@@ -117,11 +116,7 @@
         0 0 12px #d4af7fcc,
         inset 0 0 22px #d4af7faa;
       outline-color: #d4af7f;
-      animation: pulseBorder 1.5s infinite alternate ease-in-out;
-      animation-name: wiggle;
-      animation-duration: 0.4s;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: 1;
+      animation: pulseBorder 1.5s infinite alternate ease-in-out, wiggle 0.4s ease-in-out 1;
     }
     @keyframes pulseBorder {
       from {
@@ -184,7 +179,7 @@
       text-align: center;
       margin-top: 1rem;
       font-weight: 600;
-      color: #f1e5b7; /* light gold */
+      color: #f1e5b7;
       display: none;
       user-select: none;
       text-shadow: 0 0 6px #f1e5b7bb;
@@ -199,20 +194,20 @@
         max-width: 100%;
       }
       h1 {
-        font-size: 2.5rem;
-        letter-spacing: 4px;
+        font-size: 2.8rem;
+        letter-spacing: 3px;
       }
       .tagline {
-        font-size: 1rem;
-        max-width: 300px;
+        font-size: 1.1rem;
+        max-width: 320px;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1>CONSULTATION REQUEST</h1>
-  <div class="tagline">Consult us, get one of the best security advices from a professional.</div>
+  <h1>Consultation Request</h1>
+  <div class="tagline">Elite security insights tailored for your peace of mind.</div>
 
   <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
     <label for="name">Full Name <sup>*</sup></label>
