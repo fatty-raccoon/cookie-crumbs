@@ -1,84 +1,233 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Money = Privacy – Control Your Flow</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      font-size: 1.6rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      display: block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    .search-box {
+      margin-top: 1rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    article h3 {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    article p,
+    article ul {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+
+    article ul {
+      padding-left: 1.2rem;
+    }
+
+    article ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 0;
+        position: static;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .search-box {
+        margin-top: 0;
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  <header>
     <div class="container">
-      <h1 class="logo">AIO Privacy Survival</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="osint.html">OSINT</a></li>
-          <li><a href="opsec.html">OPSEC</a></li>
-          <li><a href="survival.html">Analog Survival</a></li>
-          <li><a href="money.html" class="active">Money = Privacy</a></li>
-          <li><a href="consult.html">Consultation</a></li>
-        </ul>
+      <div class="site-title">AIO Privacy Survival</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="osint.html">OSINT</a>
+        <a href="opsec.html">OPSEC</a>
+        <a href="survival.html">Analog Survival</a>
+        <a href="money.html" class="active">Money = Privacy</a>
+        <a href="consult.html">Consultation</a>
+        <div class="search-box">
+          <input type="text" id="siteSearch" placeholder="Search this page...">
+        </div>
       </nav>
-      <div class="search-box">
-        <input type="text" id="siteSearch" placeholder="Search this page...">
-      </div>
     </div>
-  </header>  <main class="container">
-    <h2>Money = Privacy – Control the Flow, Control the Risk</h2><article>
-  <h3>💵 Why Financial Privacy Matters</h3>
-  <p>Your financial footprint can expose your entire life—habits, patterns, intentions. To control exposure, control your money's movement.</p>
+  </header>
 
-  <h3>🏦 Offline Banking Tactics</h3>
-  <ul>
-    <li>Choose banks without biometric-heavy policies</li>
-    <li>Prefer banks like <strong>IPPB</strong> with branch visits, minimal surveillance</li>
-    <li>Withdraw/Deposit at counters instead of ATMs</li>
-    <li>Use passbooks and avoid mobile banking apps</li>
-  </ul>
+  <main class="container">
+    <h2>Money = Privacy – Control the Flow, Control the Risk</h2>
+    <article>
+      <h3>💵 Why Financial Privacy Matters</h3>
+      <p>Your financial footprint can expose your entire life—habits, patterns, intentions. To control exposure, control your money's movement.</p>
 
-  <h3>🪙 Cash Is King</h3>
-  <ul>
-    <li>Use cash wherever possible, break it into parts</li>
-    <li>Buy essentials in cash, avoid loyalty cards</li>
-    <li>Keep small bills for daily purchases</li>
-    <li>Hide emergency cash in analog safe spots</li>
-  </ul>
+      <h3>🏦 Offline Banking Tactics</h3>
+      <ul>
+        <li>Choose banks without biometric-heavy policies</li>
+        <li>Prefer banks like <strong>IPPB</strong> with branch visits, minimal surveillance</li>
+        <li>Withdraw/Deposit at counters instead of ATMs</li>
+        <li>Use passbooks and avoid mobile banking apps</li>
+      </ul>
 
-  <h3>📱 Digital Payments with OPSEC</h3>
-  <ul>
-    <li>Use UPI with alias accounts, non-primary SIMs</li>
-    <li>Use non-KYC wallets for one-time payments</li>
-    <li>Disable SMS, location & permissions for finance apps</li>
-    <li>Use sandboxed app profiles (like Shelter, Island)</li>
-  </ul>
+      <h3>🪙 Cash Is King</h3>
+      <ul>
+        <li>Use cash wherever possible, break it into parts</li>
+        <li>Buy essentials in cash, avoid loyalty cards</li>
+        <li>Keep small bills for daily purchases</li>
+        <li>Hide emergency cash in analog safe spots</li>
+      </ul>
 
-  <h3>🧰 Tools for Private Finance</h3>
-  <ul>
-    <li><a href="https://www.privacy.com" target="_blank">Privacy.com</a> – US-based card masking</li>
-    <li><a href="https://monerujo.io" target="_blank">Monerujo</a> – Mobile wallet for Monero</li>
-    <li><a href="https://cash.app" target="_blank">Cash App</a> – Peer payments with privacy controls</li>
-  </ul>
+      <h3>📱 Digital Payments with OPSEC</h3>
+      <ul>
+        <li>Use UPI with alias accounts, non-primary SIMs</li>
+        <li>Use non-KYC wallets for one-time payments</li>
+        <li>Disable SMS, location & permissions for finance apps</li>
+        <li>Use sandboxed app profiles (like Shelter, Island)</li>
+      </ul>
 
-  <h3>📚 Learning More</h3>
-  <ul>
-    <li><a href="https://localmonero.co" target="_blank">LocalMonero</a> – Buy/sell XMR anonymously</li>
-    <li><a href="https://dark.fail" target="_blank">Dark.fail</a> – Directory of privacy-focused hidden services</li>
-    <li><a href="https://bisq.network" target="_blank">Bisq</a> – Decentralized crypto exchange</li>
-  </ul>
+      <h3>🧰 Tools for Private Finance</h3>
+      <ul>
+        <li><a href="https://www.privacy.com" target="_blank">Privacy.com</a> – US-based card masking</li>
+        <li><a href="https://monerujo.io" target="_blank">Monerujo</a> – Mobile wallet for Monero</li>
+        <li><a href="https://cash.app" target="_blank">Cash App</a> – Peer payments with privacy controls</li>
+      </ul>
 
-  <h3>💡 Suggestions</h3>
-  <ul>
-    <li>Store transaction logs offline only</li>
-    <li>Have a system: cash for daily, UPI for rare needs, crypto for anonymous trades</li>
-    <li>Rotate usage patterns and don't build habits</li>
-  </ul>
-</article>
+      <h3>📚 Learning More</h3>
+      <ul>
+        <li><a href="https://localmonero.co" target="_blank">LocalMonero</a> – Buy/sell XMR anonymously</li>
+        <li><a href="https://dark.fail" target="_blank">Dark.fail</a> – Directory of privacy-focused hidden services</li>
+        <li><a href="https://bisq.network" target="_blank">Bisq</a> – Decentralized crypto exchange</li>
+      </ul>
 
-  </main>  <footer class="site-footer">
-    <div class="container">
-      <p>Created by Anonymous. &copy; 2025</p>
-    </div>
+      <h3>💡 Suggestions</h3>
+      <ul>
+        <li>Store transaction logs offline only</li>
+        <li>Have a system: cash for daily, UPI for rare needs, crypto for anonymous trades</li>
+        <li>Rotate usage patterns and don't build habits</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer>
+    <p>Created by Anonymous. &copy; 2025</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("mainNav");
+      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 </body>
-</html>
+  </html>
