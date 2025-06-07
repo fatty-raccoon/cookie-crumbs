@@ -1,50 +1,178 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consultation – Ask Anonymously</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consultation Form - OPSEC Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & basics */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #f8a170;
+    }
+    form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: #ddd;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 8px #f8a170;
+    }
+    button {
+      background: #f8a170;
+      color: #1f1c2c;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    button:hover {
+      background: #d87740;
+    }
+    .success-message {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #90ee90;
+      display: none;
+    }
+    @media (max-width: 500px) {
+      form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">AIO Privacy Survival</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="osint.html">OSINT</a></li>
-          <li><a href="opsec.html">OPSEC</a></li>
-          <li><a href="survival.html">Analog Survival</a></li>
-          <li><a href="money.html">Money = Privacy</a></li>
-          <li><a href="consult.html" class="active">Consultation</a></li>
-        </ul>
-      </nav>
-      <div class="search-box">
-        <input type="text" id="siteSearch" placeholder="Search this page...">
-      </div>
+
+  <h1>Consultation Request</h1>
+  <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
+    <label for="name">Full Name <sup style="color:#f76a6a">*</sup></label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Your full name"
+      required
+      autocomplete="name"
+    />
+
+    <label for="email">Email Address <sup style="color:#f76a6a">*</sup></label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="you@example.com"
+      required
+      autocomplete="email"
+    />
+
+    <label for="phone">Phone Number (optional)</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="+1 234 567 8901"
+      pattern="^\+?[0-9\s\-]{7,15}$"
+      autocomplete="tel"
+    />
+
+    <label for="message">Your Message <sup style="color:#f76a6a">*</sup></label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="Describe your query or request in detail..."
+      required
+    ></textarea>
+
+    <button type="submit">Send Request</button>
+
+    <div class="success-message" id="successMessage">
+      Thank you! Your consultation request has been sent.
     </div>
-  </header>  <main class="container">
-    <h2>Private Consultation – No Identity Required</h2>
-    <p>If you have questions, doubts, or ideas—ask them safely. No tracking, no logs. You control what you share.</p><form id="consultForm" class="consult-form">
-  <label for="name">Name or Alias:</label>
-  <input type="text" id="name" name="name" placeholder="(optional)">
+  </form>
 
-  <label for="email">Contact (Encrypted Email / Session ID / Alt method):</label>
-  <input type="text" id="email" name="email" placeholder="e.g. protonmail, session...">
+  <script>
+    const form = document.getElementById('consultationForm');
+    const successMessage = document.getElementById('successMessage');
 
-  <label for="message">Your Query or Message:</label>
-  <textarea id="message" name="message" rows="6" placeholder="Write securely, avoid real names or locations."></textarea>
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
 
-  <button type="submit">Send Securely</button>
-</form>
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        },
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+        } else {
+          alert('Oops! There was a problem submitting your form. Please try again.');
+        }
+      }).catch(error => {
+        alert('Oops! There was a problem submitting your form. Please try again.');
+      });
+    });
+  </script>
 
-<p class="note">We recommend using anonymous email like <a href="https://proton.me" target="_blank">ProtonMail</a>, <a href="https://tutanota.com" target="_blank">Tutanota</a> or <a href="https://getsession.org" target="_blank">Session</a> for full privacy.</p>
-
-  </main>  <footer class="site-footer">
-    <div class="container">
-      <p>Created by Anonymous. &copy; 2025</p>
-    </div>
-  </footer>
 </body>
-</html>
+  </html>
