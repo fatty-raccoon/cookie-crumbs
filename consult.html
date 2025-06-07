@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Consultation Form - OPSEC Vault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & basics */
     * {
       box-sizing: border-box;
     }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      background: #000;
+      color: #eee;
       margin: 0;
       min-height: 100vh;
       display: flex;
@@ -21,6 +19,7 @@
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      overflow-x: hidden;
     }
     h1 {
       margin-bottom: 1rem;
@@ -28,60 +27,66 @@
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #f8a170;
+      background: linear-gradient(45deg, #ff6b6b, #f0e130);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2rem;
     }
     form {
-      background: rgba(255, 255, 255, 0.1);
+      background: #121212;
       padding: 2rem;
-      border-radius: 15px;
+      border-radius: 20px;
       width: 100%;
-      max-width: 450px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      max-width: 460px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+      border: 1px solid #222;
+      animation: fadeIn 0.6s ease-out;
     }
     label {
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 600;
       letter-spacing: 0.5px;
+      color: #ccc;
     }
     input, textarea {
       width: 100%;
-      padding: 0.75rem 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.4rem;
+      border-radius: 10px;
       border: none;
       font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      background: rgba(255, 255, 255, 0.15);
+      font-family: 'Outfit', sans-serif;
+      background: #1e1e1e;
       color: #fff;
-      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+      transition: 0.3s ease;
+      border: 1px solid #333;
     }
     input::placeholder,
     textarea::placeholder {
-      color: #ddd;
+      color: #777;
     }
     input:focus, textarea:focus {
       outline: none;
-      background: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 0 8px #f8a170;
+      background: #1f1f1f;
+      border-color: #f0e130;
+      box-shadow: 0 0 6px #f0e13099;
     }
     button {
-      background: #f8a170;
-      color: #1f1c2c;
+      background: linear-gradient(135deg, #f0e130, #ff6b6b);
+      color: #000;
       font-weight: 700;
-      padding: 0.85rem 2rem;
-      font-size: 1.1rem;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
       border: none;
-      border-radius: 50px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       width: 100%;
     }
     button:hover {
-      background: #d87740;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.2);
     }
     .success-message {
       text-align: center;
@@ -95,13 +100,15 @@
         padding: 1.5rem;
       }
     }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
-<body>
-
-  <h1>Consultation Request</h1>
+<body>  <h1>Consultation Request</h1>
   <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
-    <label for="name">Full Name <sup style="color:#f76a6a">*</sup></label>
+    <label for="name">Full Name <sup style="color:#ff6b6b">*</sup></label>
     <input
       type="text"
       id="name"
@@ -109,45 +116,42 @@
       placeholder="Your full name"
       required
       autocomplete="name"
-    />
+    /><label for="email">Email Address <sup style="color:#ff6b6b">*</sup></label>
+<input
+  type="email"
+  id="email"
+  name="email"
+  placeholder="you@example.com"
+  required
+  autocomplete="email"
+/>
 
-    <label for="email">Email Address <sup style="color:#f76a6a">*</sup></label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="you@example.com"
-      required
-      autocomplete="email"
-    />
+<label for="phone">Phone Number (optional)</label>
+<input
+  type="tel"
+  id="phone"
+  name="phone"
+  placeholder="+1 234 567 8901"
+  pattern="^\\+?[0-9\\s\\-]{7,15}$"
+  autocomplete="tel"
+/>
 
-    <label for="phone">Phone Number (optional)</label>
-    <input
-      type="tel"
-      id="phone"
-      name="phone"
-      placeholder="+1 234 567 8901"
-      pattern="^\+?[0-9\s\-]{7,15}$"
-      autocomplete="tel"
-    />
+<label for="message">Your Message <sup style="color:#ff6b6b">*</sup></label>
+<textarea
+  id="message"
+  name="message"
+  rows="5"
+  placeholder="Describe your query or request in detail..."
+  required
+></textarea>
 
-    <label for="message">Your Message <sup style="color:#f76a6a">*</sup></label>
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      placeholder="Describe your query or request in detail..."
-      required
-    ></textarea>
+<button type="submit">Send Request</button>
 
-    <button type="submit">Send Request</button>
+<div class="success-message" id="successMessage">
+  Thank you! Your consultation request has been sent.
+</div>
 
-    <div class="success-message" id="successMessage">
-      Thank you! Your consultation request has been sent.
-    </div>
-  </form>
-
-  <script>
+  </form>  <script>
     const form = document.getElementById('consultationForm');
     const successMessage = document.getElementById('successMessage');
 
@@ -172,7 +176,5 @@
         alert('Oops! There was a problem submitting your form. Please try again.');
       });
     });
-  </script>
-
-</body>
-  </html>
+  </script></body>
+                                            </html>
