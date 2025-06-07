@@ -3,203 +3,263 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consultation Request | OPSEC Vault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Consultation Form - OPSEC Vault</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet" />
+
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      background: #000000;
+      color: #f5f5f5;
       margin: 0;
-      background: #0e0e0e;
-      color: #e5e5e5;
-      font-family: 'Inter', sans-serif;
-    }
-
-    header {
-      background: #111;
-      padding: 1rem 2rem;
-      color: #f0f0f0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      min-height: 100vh;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow-x: hidden;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #00ffc3;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-
-    h2 {
-      color: #00ffc3;
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
+    h1 {
+      font-family: 'Edu SA Hand', cursive;
+      font-weight: 400;
+      font-size: 3.6rem;
+      letter-spacing: 4px;
+      color: #d4af7f;
+      text-transform: none;
+      margin: 0 0 0.3rem 0;
+      user-select: none;
+      text-shadow: 0 0 8px #d4af7f88;
       text-align: center;
     }
-
     .tagline {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #999;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #d4af7fcc;
+      letter-spacing: 1.2px;
       margin-bottom: 2rem;
+      user-select: none;
+      text-align: center;
+      max-width: 420px;
+      line-height: 1.4;
     }
-
     form {
       background: #121212;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 10px #00ffc355;
+      padding: 2.5rem 3rem;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow:
+        0 20px 40px #d4af7f55,
+        inset 0 0 15px #a5834a88;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      animation: floatUpSlow 6s ease-in-out infinite;
+      transform-style: preserve-3d;
+      perspective: 1000px;
     }
-
+    @keyframes floatUpSlow {
+      0%, 100% {
+        transform: translateY(0);
+        box-shadow:
+          0 20px 40px #d4af7f55,
+          inset 0 0 15px #a5834a88;
+      }
+      50% {
+        transform: translateY(-15px);
+        box-shadow:
+          0 30px 50px #d4af7f99,
+          inset 0 0 20px #b39c5fbb;
+      }
+    }
     label {
       display: block;
-      margin-bottom: 0.5rem;
-      color: #e5e5e5;
+      margin-bottom: 0.6rem;
       font-weight: 600;
+      letter-spacing: 0.7px;
+      color: #f5f5f5;
+      user-select: none;
     }
-
     input, textarea {
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.85rem 1.2rem;
       margin-bottom: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #333;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      font-size: 1rem;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
       background: #1a1a1a;
-      color: #e5e5e5;
-      font-size: 1rem;
+      color: #f5f5f5;
+      box-shadow:
+        inset 0 0 15px #a5834a77;
+      transition: border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+      caret-color: #d4af7f;
+      user-select: text;
+      outline-offset: 3px;
+      outline-color: transparent;
+      outline-style: solid;
+      outline-width: 2px;
+      box-sizing: border-box;
+      max-width: 100%;
     }
-
-    input::placeholder, textarea::placeholder {
-      color: #888;
+    input::placeholder,
+    textarea::placeholder {
+      color: #bba86bcc;
+      font-style: italic;
+      user-select: none;
     }
-
     input:focus, textarea:focus {
-      border: 1px solid #00ffc3;
-      outline: none;
-      background: #222;
+      background: #2b2340;
+      border-color: #d4af7f;
+      box-shadow:
+        0 0 12px #d4af7fcc,
+        inset 0 0 22px #d4af7faa;
+      outline-color: #d4af7f;
+      animation: pulseBorder 1.5s infinite alternate ease-in-out, wiggle 0.4s ease-in-out 1;
     }
-
+    @keyframes pulseBorder {
+      from {
+        outline-color: #d4af7fcc;
+        box-shadow:
+          0 0 12px #d4af7fcc,
+          inset 0 0 22px #d4af7faa;
+      }
+      to {
+        outline-color: #f1e5b7ff;
+        box-shadow:
+          0 0 20px #f1e5b7ff,
+          inset 0 0 30px #f1e5b7cc;
+      }
+    }
+    @keyframes wiggle {
+      0% { transform: translateX(0); }
+      15% { transform: translateX(-5px); }
+      30% { transform: translateX(5px); }
+      45% { transform: translateX(-5px); }
+      60% { transform: translateX(5px); }
+      75% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
+    }
+    input:focus::placeholder,
+    textarea:focus::placeholder {
+      color: #f1e5b7;
+    }
     button {
-      background: #00ffc3;
-      color: #0e0e0e;
+      background: linear-gradient(135deg, #b7995c, #d4af7f);
+      color: #000;
+      font-weight: 700;
+      padding: 1rem 0;
+      font-size: 1.15rem;
       border: none;
-      padding: 0.9rem 1.5rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      font-size: 1rem;
+      border-radius: 50px;
       cursor: pointer;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
       width: 100%;
-      transition: background 0.3s;
+      box-shadow: 0 0 20px #d4af7fbb;
+      user-select: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      filter: drop-shadow(0 0 3px #d4af7fcc);
     }
-
-    button:hover {
-      background: #00ddb0;
+    button:hover,
+    button:focus {
+      background: linear-gradient(135deg, #d4af7f, #b7995c);
+      box-shadow:
+        0 0 30px #f1e5b7dd,
+        0 0 40px #d4af7fdd;
+      outline: none;
     }
-
+    button:active {
+      transform: scale(0.98);
+      box-shadow:
+        0 0 15px #b7995cbb;
+    }
     .success-message {
       text-align: center;
-      color: #00ffc3;
       margin-top: 1rem;
+      font-weight: 600;
+      color: #f1e5b7;
       display: none;
+      user-select: none;
+      text-shadow: 0 0 6px #f1e5b7bb;
     }
-
-    footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #666;
-      border-top: 1px solid #222;
+    sup {
+      color: #d4af7f;
+      user-select: none;
     }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
+    @media (max-width: 520px) {
+      form {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
       }
-
-      .menu-toggle {
-        display: block;
-        cursor: pointer;
+      h1 {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
       }
-
-      nav.open {
-        display: flex;
-        flex-direction: column;
-        background: #111;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-        padding: 1rem;
-      }
-
-      nav a {
-        margin: 0.5rem 0;
+      .tagline {
+        font-size: 1.1rem;
+        max-width: 320px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>OPSEC Vault</h1>
-    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="osint.html">OSINT</a>
-      <a href="privacy.html">Money = Privacy</a>
-      <a href="consult.html" style="color:#00ffc3;">Consult</a>
-    </nav>
-  </header>
 
-  <div class="container">
-    <h2>Consultation Request</h2>
-    <div class="tagline">Elite security insights tailored for your peace of mind.</div>
+  <h1>Consultation Request</h1>
+  <div class="tagline">Elite security insights tailored for your peace of mind.</div>
 
-    <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required />
+  <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
+    <label for="name">Full Name <sup>*</sup></label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Your full name"
+      required
+      autocomplete="name"
+    />
 
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    <label for="email">Email Address <sup>*</sup></label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="you@example.com"
+      required
+      autocomplete="email"
+    />
 
-      <label for="phone">Phone Number (optional)</label>
-      <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8901" pattern="^\+?[0-9\s\-]{7,15}$" />
+    <label for="phone">Phone Number (optional)</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="+1 234 567 8901"
+      pattern="^\+?[0-9\s\-]{7,15}$"
+      autocomplete="tel"
+    />
 
-      <label for="message">Your Message *</label>
-      <textarea id="message" name="message" rows="5" placeholder="Describe your query or request..." required></textarea>
+    <label for="message">Your Message <sup>*</sup></label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="Describe your query or request in detail..."
+      required
+    ></textarea>
 
-      <button type="submit">Send Request</button>
+    <button type="submit">Send Request</button>
 
-      <div class="success-message" id="successMessage">Thank you! Your consultation request has been sent.</div>
-    </form>
-  </div>
-
-  <footer>© 2025 OPSEC Vault. All rights reserved.</footer>
+    <div class="success-message" id="successMessage">
+      Thank you! Your consultation request has been sent.
+    </div>
+  </form>
 
   <script>
     const form = document.getElementById('consultationForm');
@@ -207,6 +267,7 @@
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
+
       const data = new FormData(form);
       fetch(form.action, {
         method: form.method,
@@ -226,5 +287,6 @@
       });
     });
   </script>
+
 </body>
   </html>
