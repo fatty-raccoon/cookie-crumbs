@@ -3,263 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consultation Form - OPSEC Vault</title>
+  <title>Consultation - ShadowSec</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
     }
     body {
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      background: #000000;
-      color: #f5f5f5;
       margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      overflow-x: hidden;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #e5e5e5;
     }
+    header {
+      background: #111;
+      padding: 1rem 2rem;
+      color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #00ffc3;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      height: 2px;
+      width: 25px;
+      background: #00ffc3;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    ul.nav-links li a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    ul.nav-links li a:hover {
+      color: #00ffc3;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      ul.nav-links {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        border-top: 1px solid #222;
+      }
+      ul.nav-links.show {
+        display: flex;
+      }
+    }
+
+    main {
+      max-width: 480px;
+      margin: 2rem auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px #00ffc377;
+    }
+
     h1 {
-      font-family: 'Edu SA Hand', cursive;
-      font-weight: 400;
-      font-size: 3.6rem;
-      letter-spacing: 4px;
-      color: #d4af7f;
-      text-transform: none;
-      margin: 0 0 0.3rem 0;
-      user-select: none;
-      text-shadow: 0 0 8px #d4af7f88;
+      color: #00ffc3;
+      font-size: 2rem;
       text-align: center;
+      margin-bottom: 0.5rem;
     }
     .tagline {
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: #d4af7fcc;
-      letter-spacing: 1.2px;
-      margin-bottom: 2rem;
-      user-select: none;
+      color: #ccc;
       text-align: center;
-      max-width: 420px;
-      line-height: 1.4;
-    }
-    form {
-      background: #121212;
-      padding: 2.5rem 3rem;
-      border-radius: 20px;
-      width: 100%;
-      max-width: 480px;
-      box-shadow:
-        0 20px 40px #d4af7f55,
-        inset 0 0 15px #a5834a88;
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      animation: floatUpSlow 6s ease-in-out infinite;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-    }
-    @keyframes floatUpSlow {
-      0%, 100% {
-        transform: translateY(0);
-        box-shadow:
-          0 20px 40px #d4af7f55,
-          inset 0 0 15px #a5834a88;
-      }
-      50% {
-        transform: translateY(-15px);
-        box-shadow:
-          0 30px 50px #d4af7f99,
-          inset 0 0 20px #b39c5fbb;
-      }
-    }
-    label {
-      display: block;
-      margin-bottom: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.7px;
-      color: #f5f5f5;
-      user-select: none;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.85rem 1.2rem;
-      margin-bottom: 1.5rem;
-      border-radius: 12px;
-      border: 2px solid transparent;
       font-size: 1rem;
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      background: #1a1a1a;
-      color: #f5f5f5;
-      box-shadow:
-        inset 0 0 15px #a5834a77;
-      transition: border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
-      caret-color: #d4af7f;
-      user-select: text;
-      outline-offset: 3px;
-      outline-color: transparent;
-      outline-style: solid;
-      outline-width: 2px;
-      box-sizing: border-box;
-      max-width: 100%;
+      margin-bottom: 2rem;
     }
-    input::placeholder,
-    textarea::placeholder {
-      color: #bba86bcc;
-      font-style: italic;
-      user-select: none;
+
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+      font-weight: 600;
     }
-    input:focus, textarea:focus {
-      background: #2b2340;
-      border-color: #d4af7f;
-      box-shadow:
-        0 0 12px #d4af7fcc,
-        inset 0 0 22px #d4af7faa;
-      outline-color: #d4af7f;
-      animation: pulseBorder 1.5s infinite alternate ease-in-out, wiggle 0.4s ease-in-out 1;
-    }
-    @keyframes pulseBorder {
-      from {
-        outline-color: #d4af7fcc;
-        box-shadow:
-          0 0 12px #d4af7fcc,
-          inset 0 0 22px #d4af7faa;
-      }
-      to {
-        outline-color: #f1e5b7ff;
-        box-shadow:
-          0 0 20px #f1e5b7ff,
-          inset 0 0 30px #f1e5b7cc;
-      }
-    }
-    @keyframes wiggle {
-      0% { transform: translateX(0); }
-      15% { transform: translateX(-5px); }
-      30% { transform: translateX(5px); }
-      45% { transform: translateX(-5px); }
-      60% { transform: translateX(5px); }
-      75% { transform: translateX(-3px); }
-      100% { transform: translateX(0); }
-    }
-    input:focus::placeholder,
-    textarea:focus::placeholder {
-      color: #f1e5b7;
-    }
-    button {
-      background: linear-gradient(135deg, #b7995c, #d4af7f);
-      color: #000;
-      font-weight: 700;
-      padding: 1rem 0;
-      font-size: 1.15rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
+
+    form input, form textarea {
       width: 100%;
-      box-shadow: 0 0 20px #d4af7fbb;
-      user-select: none;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      filter: drop-shadow(0 0 3px #d4af7fcc);
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0.6rem;
+      border: 1px solid #333;
+      background: #1c1c1c;
+      color: #eee;
+      font-size: 1rem;
+      transition: 0.3s;
     }
-    button:hover,
-    button:focus {
-      background: linear-gradient(135deg, #d4af7f, #b7995c);
-      box-shadow:
-        0 0 30px #f1e5b7dd,
-        0 0 40px #d4af7fdd;
+
+    form input:focus, form textarea:focus {
+      border-color: #00ffc3;
+      box-shadow: 0 0 8px #00ffc3aa;
       outline: none;
+      background: #222;
     }
-    button:active {
-      transform: scale(0.98);
-      box-shadow:
-        0 0 15px #b7995cbb;
+
+    form button {
+      background: #00ffc3;
+      color: #000;
+      padding: 0.9rem 1rem;
+      border: none;
+      border-radius: 2rem;
+      font-weight: 700;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
     }
+
+    form button:hover {
+      background: #0fffd4;
+      box-shadow: 0 0 15px #00ffc3aa;
+    }
+
     .success-message {
       text-align: center;
-      margin-top: 1rem;
+      color: #00ffc3;
       font-weight: 600;
-      color: #f1e5b7;
+      margin-top: 1rem;
       display: none;
-      user-select: none;
-      text-shadow: 0 0 6px #f1e5b7bb;
-    }
-    sup {
-      color: #d4af7f;
-      user-select: none;
-    }
-    @media (max-width: 520px) {
-      form {
-        padding: 2rem 1.5rem;
-        max-width: 100%;
-      }
-      h1 {
-        font-size: 2.8rem;
-        letter-spacing: 3px;
-      }
-      .tagline {
-        font-size: 1.1rem;
-        max-width: 320px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Consultation Request</h1>
-  <div class="tagline">Elite security insights tailored for your peace of mind.</div>
+  <header>
+    <div class="logo">ShadowSec</div>
+    <nav>
+      <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
-    <label for="name">Full Name <sup>*</sup></label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      placeholder="Your full name"
-      required
-      autocomplete="name"
-    />
+  <main>
+    <h1>Consultation</h1>
+    <div class="tagline">Elite security insights tailored for your peace of mind.</div>
 
-    <label for="email">Email Address <sup>*</sup></label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="you@example.com"
-      required
-      autocomplete="email"
-    />
+    <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
+      <label for="name">Full Name <sup>*</sup></label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" autocomplete="name" />
 
-    <label for="phone">Phone Number (optional)</label>
-    <input
-      type="tel"
-      id="phone"
-      name="phone"
-      placeholder="+1 234 567 8901"
-      pattern="^\+?[0-9\s\-]{7,15}$"
-      autocomplete="tel"
-    />
+      <label for="email">Email Address <sup>*</sup></label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
 
-    <label for="message">Your Message <sup>*</sup></label>
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      placeholder="Describe your query or request in detail..."
-      required
-    ></textarea>
+      <label for="phone">Phone Number (optional)</label>
+      <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8901" pattern="^\+?[0-9\s\-]{7,15}$" autocomplete="tel" />
 
-    <button type="submit">Send Request</button>
+      <label for="message">Your Message <sup>*</sup></label>
+      <textarea id="message" name="message" rows="5" required placeholder="Describe your query or request..."></textarea>
 
-    <div class="success-message" id="successMessage">
-      Thank you! Your consultation request has been sent.
-    </div>
-  </form>
+      <button type="submit">Send Request</button>
+      <div class="success-message" id="successMessage">Thank you! Your consultation request has been sent.</div>
+    </form>
+  </main>
 
   <script>
     const form = document.getElementById('consultationForm');
@@ -267,25 +202,26 @@
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-
       const data = new FormData(form);
       fetch(form.action, {
         method: form.method,
         body: data,
-        headers: {
-          'Accept': 'application/json'
-        },
+        headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
           form.reset();
           successMessage.style.display = 'block';
         } else {
-          alert('Oops! There was a problem submitting your form. Please try again.');
+          alert('Oops! Something went wrong. Try again.');
         }
-      }).catch(error => {
-        alert('Oops! There was a problem submitting your form. Please try again.');
+      }).catch(() => {
+        alert('Network error. Please try again later.');
       });
     });
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
   </script>
 
 </body>
