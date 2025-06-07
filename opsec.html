@@ -1,78 +1,218 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OPSEC – Digital Self Defense</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #f4f4f4;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      font-size: 1.6rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #0ff;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      display: block;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #5cf;
+    }
+
+    .search-box {
+      margin-top: 1rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    main {
+      padding: 2rem 1rem;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      color: #0ff;
+    }
+
+    article h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.5rem;
+      color: #5cf;
+    }
+
+    article p, article li {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 0;
+        position: static;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .search-box {
+        margin-top: 0;
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  <header>
     <div class="container">
-      <h1 class="logo">AIO Privacy Survival</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="osint.html">OSINT</a></li>
-          <li><a href="opsec.html" class="active">OPSEC</a></li>
-          <li><a href="survival.html">Analog Survival</a></li>
-          <li><a href="money.html">Money = Privacy</a></li>
-          <li><a href="consult.html">Consultation</a></li>
-        </ul>
+      <div class="site-title">ShadowSec</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="osint.html">OSINT</a>
+        <a href="opsec.html" class="active">OPSEC</a>
+        <a href="survival.html">Analog Survival</a>
+        <a href="money.html">Money = Privacy</a>
+        <a href="consult.html">Consultation</a>
+        <div class="search-box">
+          <input type="text" id="siteSearch" placeholder="Search this page...">
+        </div>
       </nav>
-      <div class="search-box">
-        <input type="text" id="siteSearch" placeholder="Search this page...">
-      </div>
     </div>
-  </header>  <main class="container">
-    <h2>OPSEC – Operational Security in the Digital Age</h2><article>
-  <h3>What is OPSEC?</h3>
-  <p>OPSEC is the process of identifying, assessing, and protecting critical information from exploitation. It’s not just tools—it’s mindset, discipline, and lifestyle.</p>
+  </header>
 
-  <h3>🧠 Core OPSEC Principles</h3>
-  <ul>
-    <li>Don't overshare (online or offline)</li>
-    <li>Segregate identities: use alias, burner emails, and different devices</li>
-    <li>Only connect to trusted networks; avoid public Wi-Fi or use secure VPNs</li>
-    <li>Be invisible digitally—turn off location, permissions, and telemetry</li>
-  </ul>
+  <main class="container">
+    <h2>OPSEC – Operational Security in the Digital Age</h2>
+    <article>
+      <h3>What is OPSEC?</h3>
+      <p>OPSEC is the process of identifying, assessing, and protecting critical information from exploitation. It’s not just tools—it’s mindset, discipline, and lifestyle.</p>
 
-  <h3>🛠️ Tools to Support Your OPSEC</h3>
-  <ul>
-    <li><a href="https://grapheneos.org" target="_blank">GrapheneOS</a> – Hardened OS for Pixel phones</li>
-    <li><a href="https://rethinkdns.com" target="_blank">RethinkDNS</a> – App firewall & DNS-based blocking</li>
-    <li><a href="https://www.kuketz-blog.de/" target="_blank">Kuketz Blog</a> – Deep dives into mobile privacy</li>
-    <li><a href="https://proton.me" target="_blank">Proton Mail & VPN</a> – Secure Swiss-based services</li>
-    <li><a href="https://www.torproject.org" target="_blank">Tor Browser</a> – For anonymous browsing</li>
-  </ul>
+      <h3>🧠 Core OPSEC Principles</h3>
+      <ul>
+        <li>Don't overshare (online or offline)</li>
+        <li>Segregate identities: use alias, burner emails, and different devices</li>
+        <li>Only connect to trusted networks; avoid public Wi-Fi or use secure VPNs</li>
+        <li>Be invisible digitally—turn off location, permissions, and telemetry</li>
+      </ul>
 
-  <h3>📦 Compartmentalization Techniques</h3>
-  <ul>
-    <li>One SIM = One Purpose = One Account</li>
-    <li>Isolated logins, VPN tunnels, and browser containers</li>
-    <li>Use offline tools (KeePass, Aegis, etc.) for credentials and codes</li>
-  </ul>
+      <h3>🛠️ Tools to Support Your OPSEC</h3>
+      <ul>
+        <li><a href="https://grapheneos.org" target="_blank">GrapheneOS</a> – Hardened OS for Pixel phones</li>
+        <li><a href="https://rethinkdns.com" target="_blank">RethinkDNS</a> – App firewall & DNS-based blocking</li>
+        <li><a href="https://www.kuketz-blog.de/" target="_blank">Kuketz Blog</a> – Deep dives into mobile privacy</li>
+        <li><a href="https://proton.me" target="_blank">Proton Mail & VPN</a> – Secure Swiss-based services</li>
+        <li><a href="https://www.torproject.org" target="_blank">Tor Browser</a> – For anonymous browsing</li>
+      </ul>
 
-  <h3>📚 Resources for Deeper Learning</h3>
-  <ul>
-    <li><a href="https://ssd.eff.org" target="_blank">EFF Surveillance Self Defense</a></li>
-    <li><a href="https://www.privacytools.io" target="_blank">PrivacyTools.io</a></li>
-    <li><a href="https://techlore.tech" target="_blank">Techlore</a> – Privacy education and guides</li>
-    <li><a href="https://nixnet.services" target="_blank">NixNet</a> – Privacy-friendly services</li>
-  </ul>
+      <h3>📦 Compartmentalization Techniques</h3>
+      <ul>
+        <li>One SIM = One Purpose = One Account</li>
+        <li>Isolated logins, VPN tunnels, and browser containers</li>
+        <li>Use offline tools (KeePass, Aegis, etc.) for credentials and codes</li>
+      </ul>
 
-  <h3>💡 Suggestions for Practice</h3>
-  <ul>
-    <li>Audit your phone and digital behavior weekly</li>
-    <li>Uninstall unnecessary apps; disable permissions</li>
-    <li>Practice offline days and device disconnection</li>
-  </ul>
-</article>
+      <h3>📚 Resources for Deeper Learning</h3>
+      <ul>
+        <li><a href="https://ssd.eff.org" target="_blank">EFF Surveillance Self Defense</a></li>
+        <li><a href="https://www.privacytools.io" target="_blank">PrivacyTools.io</a></li>
+        <li><a href="https://techlore.tech" target="_blank">Techlore</a> – Privacy education and guides</li>
+        <li><a href="https://nixnet.services" target="_blank">NixNet</a> – Privacy-friendly services</li>
+      </ul>
 
-  </main>  <footer class="site-footer">
-    <div class="container">
-      <p>Created by Anonymous. &copy; 2025</p>
-    </div>
+      <h3>💡 Suggestions for Practice</h3>
+      <ul>
+        <li>Audit your phone and digital behavior weekly</li>
+        <li>Uninstall unnecessary apps; disable permissions</li>
+        <li>Practice offline days and device disconnection</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer>
+    <p>Created by Anonymous. &copy; 2025</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("mainNav");
+      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 </body>
 </html>
