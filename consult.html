@@ -31,7 +31,7 @@
     .logo {
       font-weight: 700;
       font-size: 1.4rem;
-      color: #00ffc3;
+      color: white;
     }
     nav {
       display: flex;
@@ -41,12 +41,13 @@
       display: none;
       flex-direction: column;
       cursor: pointer;
+      transform: scale(0.8); /* Smaller hamburger icon */
     }
     .nav-toggle span {
       height: 2px;
-      width: 25px;
+      width: 22px;
       background: #00ffc3;
-      margin: 4px 0;
+      margin: 3px 0;
       transition: 0.3s;
     }
     ul.nav-links {
@@ -55,12 +56,12 @@
       gap: 1.5rem;
     }
     ul.nav-links li a {
-      color: #ccc;
+      color: #00ffc3;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.1rem; /* slightly larger Home */
     }
     ul.nav-links li a:hover {
-      color: #00ffc3;
       text-decoration: underline;
     }
     @media (max-width: 768px) {
@@ -132,10 +133,10 @@
     }
 
     form button {
-      background: #00ffc3;
-      color: #000;
+      background: transparent;
+      color: #00ffc3;
+      border: 2px solid #00ffc3;
       padding: 0.9rem 1rem;
-      border: none;
       border-radius: 2rem;
       font-weight: 700;
       width: 100%;
@@ -145,8 +146,8 @@
     }
 
     form button:hover {
-      background: #0fffd4;
-      box-shadow: 0 0 15px #00ffc3aa;
+      background: rgba(0, 255, 195, 0.05);
+      box-shadow: 0 0 12px #00ffc3aa;
     }
 
     .success-message {
@@ -169,7 +170,7 @@
         <span></span>
       </div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="/">Home</a></li>
+        <li><a href="https://lamboar.github.io/shadowsec/index.html">Home</a></li>
       </ul>
     </nav>
   </header>
@@ -225,4 +226,4 @@
   </script>
 
 </body>
-  </html>
+</html>
