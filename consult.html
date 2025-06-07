@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Consultation Form - OPSEC Vault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
     /* Reset & basics */
     * {
@@ -13,7 +16,7 @@
     body {
       font-family: 'Barlow Condensed', sans-serif;
       background: #000000; /* true black AMOLED */
-      color: #ddd;
+      color: #f5f5f5;
       margin: 0;
       min-height: 100vh;
       display: flex;
@@ -24,14 +27,25 @@
       overflow-x: hidden;
     }
     h1 {
-      margin-bottom: 2rem;
-      font-weight: 700;
-      text-align: center;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 3.2rem;
+      letter-spacing: 6px;
+      color: #d4af7f; /* faded light gold */
       text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #9b59b6; /* luxurious purple */
-      text-shadow: 0 0 8px #9b59b6aa;
+      margin: 0 0 0.3rem 0;
       user-select: none;
+      text-shadow: 0 0 8px #d4af7f88;
+    }
+    .tagline {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #d4af7fcc;
+      letter-spacing: 1.1px;
+      margin-bottom: 2rem;
+      user-select: none;
+      text-align: center;
+      max-width: 400px;
     }
     form {
       background: #121212;
@@ -40,18 +54,26 @@
       width: 100%;
       max-width: 480px;
       box-shadow:
-        0 0 20px #9b59b6aa,
-        inset 0 0 12px #6c3483cc;
+        0 20px 40px #d4af7f55,
+        inset 0 0 15px #a5834a88;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      animation: floatIn 0.7s ease forwards;
-      transform: translateY(30px);
-      opacity: 0;
+      animation: floatUpSlow 6s ease-in-out infinite;
+      transform-style: preserve-3d;
+      perspective: 1000px;
     }
-    @keyframes floatIn {
-      to {
+    @keyframes floatUpSlow {
+      0%, 100% {
         transform: translateY(0);
-        opacity: 1;
+        box-shadow:
+          0 20px 40px #d4af7f55,
+          inset 0 0 15px #a5834a88;
+      }
+      50% {
+        transform: translateY(-15px);
+        box-shadow:
+          0 30px 50px #d4af7f99,
+          inset 0 0 20px #b39c5fbb;
       }
     }
     label {
@@ -59,7 +81,7 @@
       margin-bottom: 0.6rem;
       font-weight: 600;
       letter-spacing: 0.7px;
-      color: #eee;
+      color: #f5f5f5;
       user-select: none;
     }
     input, textarea {
@@ -71,11 +93,11 @@
       font-size: 1rem;
       font-family: 'Barlow Condensed', sans-serif;
       background: #1a1a1a;
-      color: #eee;
+      color: #f5f5f5;
       box-shadow:
-        inset 0 0 10px #3a1f6b88;
+        inset 0 0 15px #a5834a77;
       transition: border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
-      caret-color: #9b59b6;
+      caret-color: #d4af7f;
       user-select: text;
       outline-offset: 3px;
       outline-color: transparent;
@@ -84,43 +106,36 @@
     }
     input::placeholder,
     textarea::placeholder {
-      color: #777;
+      color: #bba86bcc;
       font-style: italic;
       user-select: none;
     }
     input:focus, textarea:focus {
-      background: #2b1a44;
-      border-color: #9b59b6;
+      background: #2b2340;
+      border-color: #d4af7f;
       box-shadow:
-        0 0 8px #9b59b6cc,
-        inset 0 0 15px #9b59b6aa;
-      outline-color: #9b59b6;
+        0 0 12px #d4af7fcc,
+        inset 0 0 22px #d4af7faa;
+      outline-color: #d4af7f;
       animation: pulseBorder 1.5s infinite alternate ease-in-out;
-    }
-    @keyframes pulseBorder {
-      from {
-        outline-color: #9b59b6cc;
-        box-shadow:
-          0 0 8px #9b59b6cc,
-          inset 0 0 15px #9b59b6aa;
-      }
-      to {
-        outline-color: #c39bd3ff;
-        box-shadow:
-          0 0 15px #c39bd3ff,
-          inset 0 0 20px #c39bd3cc;
-      }
-    }
-    input:focus::placeholder,
-    textarea:focus::placeholder {
-      color: #c39bd3;
-    }
-    /* Animate inputs with a gentle wiggle when focused */
-    input:focus, textarea:focus {
       animation-name: wiggle;
       animation-duration: 0.4s;
       animation-timing-function: ease-in-out;
       animation-iteration-count: 1;
+    }
+    @keyframes pulseBorder {
+      from {
+        outline-color: #d4af7fcc;
+        box-shadow:
+          0 0 12px #d4af7fcc,
+          inset 0 0 22px #d4af7faa;
+      }
+      to {
+        outline-color: #f1e5b7ff;
+        box-shadow:
+          0 0 20px #f1e5b7ff,
+          inset 0 0 30px #f1e5b7cc;
+      }
     }
     @keyframes wiggle {
       0% { transform: translateX(0); }
@@ -131,9 +146,13 @@
       75% { transform: translateX(-3px); }
       100% { transform: translateX(0); }
     }
+    input:focus::placeholder,
+    textarea:focus::placeholder {
+      color: #f1e5b7;
+    }
     button {
-      background: linear-gradient(135deg, #6a0dad, #9b59b6);
-      color: #fff;
+      background: linear-gradient(135deg, #b7995c, #d4af7f);
+      color: #000;
       font-weight: 700;
       padding: 1rem 0;
       font-size: 1.15rem;
@@ -142,35 +161,36 @@
       cursor: pointer;
       transition: background 0.4s ease, box-shadow 0.4s ease;
       width: 100%;
-      box-shadow: 0 0 15px #9b59b6cc;
+      box-shadow: 0 0 20px #d4af7fbb;
       user-select: none;
       text-transform: uppercase;
       letter-spacing: 1.5px;
+      filter: drop-shadow(0 0 3px #d4af7fcc);
     }
     button:hover,
     button:focus {
-      background: linear-gradient(135deg, #9b59b6, #6a0dad);
+      background: linear-gradient(135deg, #d4af7f, #b7995c);
       box-shadow:
-        0 0 20px #bb8fce,
-        0 0 30px #9b59b6;
+        0 0 30px #f1e5b7dd,
+        0 0 40px #d4af7fdd;
       outline: none;
     }
     button:active {
       transform: scale(0.98);
       box-shadow:
-        0 0 10px #8e44ad;
+        0 0 15px #b7995cbb;
     }
     .success-message {
       text-align: center;
       margin-top: 1rem;
       font-weight: 600;
-      color: #7fffd4; /* aquamarine highlight */
+      color: #f1e5b7; /* light gold */
       display: none;
       user-select: none;
-      text-shadow: 0 0 4px #7fffd4cc;
+      text-shadow: 0 0 6px #f1e5b7bb;
     }
     sup {
-      color: #d36aff;
+      color: #d4af7f;
       user-select: none;
     }
     @media (max-width: 520px) {
@@ -178,12 +198,22 @@
         padding: 2rem 1.5rem;
         max-width: 100%;
       }
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+      }
+      .tagline {
+        font-size: 1rem;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Consultation Request</h1>
+  <h1>CONSULTATION REQUEST</h1>
+  <div class="tagline">Consult us, get one of the best security advices from a professional.</div>
+
   <form id="consultationForm" action="https://formspree.io/f/yourFormID" method="POST">
     <label for="name">Full Name <sup>*</sup></label>
     <input
