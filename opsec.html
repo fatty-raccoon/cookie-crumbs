@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OPSEC – Digital Self Defense</title>
+  <title>OPSEC – Digital Self Defense | ShadowSec</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -15,16 +15,18 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: #0e0e0e;
-      color: #f4f4f4;
+      color: #e5e5e5;
+      line-height: 1.6;
     }
 
     header {
       background-color: #111;
-      color: white;
-      padding: 1rem 1.5rem;
+      color: #f0f0f0;
+      padding: 1.2rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 1px solid #222;
     }
 
     .container {
@@ -33,8 +35,9 @@
     }
 
     .site-title {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
     .menu-toggle {
@@ -45,7 +48,7 @@
       cursor: pointer;
       display: block;
       position: absolute;
-      top: 1.2rem;
+      top: 1.3rem;
       right: 1.5rem;
     }
 
@@ -57,16 +60,16 @@
     }
 
     nav a {
-      color: #0ff;
+      color: #ccc;
       font-weight: 600;
       text-decoration: none;
       padding: 0.5rem 0;
       display: block;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-      color: #5cf;
+    nav a:hover,
+    nav a.active {
+      color: #00ffc3;
     }
 
     .search-box {
@@ -77,35 +80,50 @@
       width: 100%;
       padding: 0.6rem;
       border-radius: 6px;
-      border: 1px solid #444;
+      border: 1px solid #333;
       background-color: #1a1a1a;
-      color: #fff;
+      color: #eee;
     }
 
     main {
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem;
     }
 
     main h2 {
       font-size: 2rem;
-      margin-bottom: 1.2rem;
-      color: #0ff;
+      margin-bottom: 1rem;
+      color: #00ffc3;
     }
 
     article h3 {
-      font-size: 1.3rem;
-      margin: 1.5rem 0 0.5rem;
-      color: #5cf;
+      font-size: 1.25rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
+      color: #fff;
     }
 
-    article p, article li {
+    article p,
+    article ul {
       font-size: 1rem;
       color: #ccc;
-      line-height: 1.6;
+      margin-bottom: 1rem;
     }
 
-    ul {
-      padding-left: 1.5rem;
+    article ul {
+      padding-left: 1.2rem;
+    }
+
+    article ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: #00ffc3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -113,7 +131,9 @@
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #aaa;
+      color: #666;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
     }
 
     @media (min-width: 768px) {
@@ -160,10 +180,10 @@
   <main class="container">
     <h2>OPSEC – Operational Security in the Digital Age</h2>
     <article>
-      <h3>What is OPSEC?</h3>
+      <h3>🧠 What is OPSEC?</h3>
       <p>OPSEC is the process of identifying, assessing, and protecting critical information from exploitation. It’s not just tools—it’s mindset, discipline, and lifestyle.</p>
 
-      <h3>🧠 Core OPSEC Principles</h3>
+      <h3>📌 Core OPSEC Principles</h3>
       <ul>
         <li>Don't overshare (online or offline)</li>
         <li>Segregate identities: use alias, burner emails, and different devices</li>
