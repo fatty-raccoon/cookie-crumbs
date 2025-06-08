@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | ShadowSec</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #e5e5e5;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #00ffc3;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    form {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 10px rgba(0, 255, 195, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1.5rem;
+      background: #0e0e0e;
+      border: 1px solid #333;
+      border-radius: 0.5rem;
+      color: #e5e5e5;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00ffc3;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 255, 195, 0.6);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background: transparent;
+      color: #00ffc3;
+      border: 2px solid #00ffc3;
+      padding: 0.6rem 1.2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgba(0, 255, 195, 0.1);
+    }
+
+    .confirmation {
+      background: #111;
+      border: 1px solid #333;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      color: #00ffc3;
+      margin-top: 1rem;
+      text-align: center;
+      display: none;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <a class="back-link" href="https://lamboar.github.io/shadowsec/">← Back to Home</a>
+    <h2>📨 Contact Us</h2>
+
+    <form id="contactForm" action="https://formspree.io/f/yourFormID" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="confirmation" id="confirmationMsg">
+      ✅ Message sent successfully. We'll get back to you soon.
+    </div>
+  </main>
+
+  <footer>
+    <p>Crafted by छछुंदर. | &copy; 2025 ShadowSec</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const confirmation = document.getElementById('confirmationMsg');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        form.reset();
+        confirmation.style.display = 'block';
+      } else {
+        confirmation.innerText = '❌ Something went wrong. Try again later.';
+        confirmation.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+        </html>
