@@ -33,7 +33,7 @@
     }
 
     .site-title {
-      font-size: 1.5rem;
+      font-size: 2.3rem;
       font-weight: 800;
       color: #ffffff;
     }
@@ -93,7 +93,7 @@
     .hero h2 {
       font-size: 2rem;
       margin-bottom: 0.8rem;
-      color: #ffffff; /* changed to white */
+      color: #ffffff;
     }
 
     .hero p {
@@ -104,12 +104,12 @@
 
     .btn {
       display: inline-block;
-      background-color: transparent; /* transparent background */
-      color: #00ffc3; /* neon text */
+      background-color: transparent;
+      color: #00ffc3;
       padding: 0.7rem 1.3rem;
       font-weight: 600;
       border-radius: 12px;
-      border: 2px solid #00ffc3; /* neon border */
+      border: 2px solid #00ffc3;
       text-decoration: none;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
@@ -157,6 +157,32 @@
       text-decoration: underline;
     }
 
+    .dropdown {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding-left: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .dropdown-menu a {
+      padding: 0.3rem 0;
+    }
+
+    .dropdown-toggle {
+      transition: transform 0.3s ease;
+      display: inline-block;
+      margin-left: 0.25rem;
+    }
+
+    .rotate {
+      transform: rotate(180deg);
+    }
+
     footer {
       background-color: #111;
       text-align: center;
@@ -185,6 +211,19 @@
         margin-top: 0;
         margin-left: auto;
       }
+
+      .dropdown-menu {
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .dropdown-menu a {
+        padding: 0.2rem 0;
+      }
     }
   </style>
 </head>
@@ -194,15 +233,21 @@
       <div class="site-title">ShadowSec</div>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <nav id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="osint.html">OSINT</a>
-        <a href="opsec.html">OPSEC</a>
-        <a href="survival.html">Analog Survival</a>
-        <a href="money.html">Money = Privacy</a>
-        <a href="consult.html">Consultation</a>
-        <div class="search-box">
-          <input type="text" id="siteSearch" placeholder="Search entire site...">
+        <a href="https://lamboar.github.io/shadowsec/">🏠 Home</a>
+        <div class="dropdown">
+          <a href="#" id="miniGuidesLink">
+            <span>📚 Mini Guides</span>
+            <span class="dropdown-toggle">▾</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="https://lamboar.github.io/shadowsec/osint.html">🕵️ OSINT</a>
+            <a href="https://lamboar.github.io/shadowsec/opsec.html">🛡️ OPSEC</a>
+            <a href="https://lamboar.github.io/shadowsec/survival.html">📻 Analog Survival</a>
+          </div>
         </div>
+        <a href="mobile.html" class="active">📱 Mobile Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/money.html">💵 Financial Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/contact.html">🔗 Contact Us</a>
       </nav>
     </div>
   </header>
@@ -243,6 +288,26 @@
       const nav = document.getElementById("mainNav");
       nav.style.display = nav.style.display === "flex" ? "none" : "flex";
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const miniLink = document.getElementById('miniGuidesLink');
+      const dropdownMenu = miniLink.nextElementSibling;
+      const arrow = miniLink.querySelector('.dropdown-toggle');
+
+      miniLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isOpen = dropdownMenu.style.display === 'flex';
+        dropdownMenu.style.display = isOpen ? 'none' : 'flex';
+        arrow.classList.toggle('rotate', !isOpen);
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!miniLink.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.style.display = 'none';
+          arrow.classList.remove('rotate');
+        }
+      });
+    });
   </script>
 </body>
-          </html>
+  </html>
