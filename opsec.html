@@ -72,6 +72,36 @@
       color: #00ffc3;
     }
 
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0;
+      z-index: 999;
+      min-width: 180px;
+      box-shadow: 0 0 10px rgba(0, 255, 195, 0.1);
+    }
+
+    .dropdown-menu a {
+      padding: 0.6rem 1rem;
+      display: block;
+      color: #e5e5e5;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #222;
+      color: #00ffc3;
+    }
+
     .search-box {
       margin-top: 1rem;
     }
@@ -140,8 +170,7 @@
       nav {
         display: flex !important;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: flex-start;
         gap: 1.5rem;
         margin-top: 0;
         position: static;
@@ -155,6 +184,20 @@
         margin-top: 0;
         margin-left: auto;
       }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: none;
+        padding-left: 1rem;
+      }
     }
   </style>
 </head>
@@ -164,12 +207,21 @@
       <div class="site-title">ShadowSec</div>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <nav id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="osint.html">OSINT</a>
-        <a href="opsec.html" class="active">OPSEC</a>
-        <a href="survival.html">Analog Survival</a>
-        <a href="money.html">Money = Privacy</a>
-        <a href="consult.html">Consultation</a>
+        <a href="https://lamboar.github.io/shadowsec/">🏠 Home</a>
+
+        <div class="dropdown">
+          <a href="#" id="miniGuidesLink">📚 Mini Guides ▾</a>
+          <div class="dropdown-menu">
+            <a href="https://lamboar.github.io/shadowsec/osint.html">🕵️ OSINT</a>
+            <a href="https://lamboar.github.io/shadowsec/opsec.html" class="active">🛡️ OPSEC</a>
+            <a href="https://lamboar.github.io/shadowsec/survival.html">📻 Analog Survival</a>
+          </div>
+        </div>
+
+        <a href="https://lamboar.github.io/shadowsec/mobpriv.html">📱 Mobile Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/money.html">💵 Financial Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/contact.html">🔗 Contact Us</a>
+
         <div class="search-box">
           <input type="text" id="siteSearch" placeholder="Search this page...">
         </div>
@@ -225,7 +277,7 @@
   </main>
 
   <footer>
-    <p>Created by Anonymous. &copy; 2025</p>
+    <p>Crafted by छछुंदर. | &copy; 2025 ShadowSec</p>
   </footer>
 
   <script>
@@ -233,6 +285,16 @@
       const nav = document.getElementById("mainNav");
       nav.style.display = nav.style.display === "flex" ? "none" : "flex";
     }
+
+    const dropdownLink = document.getElementById("miniGuidesLink");
+    const dropdownMenu = dropdownLink.nextElementSibling;
+
+    dropdownLink.addEventListener("click", function (e) {
+      if (window.innerWidth < 768) {
+        e.preventDefault();
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+      }
+    });
   </script>
 </body>
-</html>
+  </html>
