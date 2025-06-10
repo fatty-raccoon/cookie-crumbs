@@ -35,7 +35,7 @@
     }
 
     .site-title {
-      font-size: 1.6rem;
+      font-size: 2rem;
       font-weight: 800;
       letter-spacing: 0.5px;
     }
@@ -69,6 +69,58 @@
 
     nav a:hover,
     nav a.active {
+      color: #00ffc3;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      color: #ccc;
+      font-weight: 600;
+    }
+
+    .dropdown-toggle:hover {
+      color: #00ffc3;
+    }
+
+    .arrow {
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .arrow.open {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0;
+      z-index: 999;
+      min-width: 180px;
+      box-shadow: 0 0 10px rgba(0, 255, 195, 0.1);
+    }
+
+    .dropdown-menu a {
+      padding: 0.6rem 1rem;
+      display: block;
+      color: #e5e5e5;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #222;
       color: #00ffc3;
     }
 
@@ -140,7 +192,7 @@
       nav {
         display: flex !important;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         gap: 1.5rem;
         margin-top: 0;
@@ -155,28 +207,49 @@
         margin-top: 0;
         margin-left: auto;
       }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: none;
+        padding-left: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="container">
       <div class="site-title">ShadowSec</div>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <nav id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="osint.html">OSINT</a>
-        <a href="opsec.html">OPSEC</a>
-        <a href="survival.html" class="active">Analog Survival</a>
-        <a href="money.html">Money = Privacy</a>
-        <a href="consult.html">Consultation</a>
-        <div class="search-box">
-          <input type="text" id="siteSearch" placeholder="Search this page...">
+        <a href="https://lamboar.github.io/shadowsec/">🏠 Home</a>
+        <div class="dropdown">
+          <div class="dropdown-toggle" onclick="toggleDropdown()">
+            <span>📚 Mini Guides</span>
+            <span class="arrow" id="dropdownArrow">▾</span>
+          </div>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="https://lamboar.github.io/shadowsec/osint.html">🕵️ OSINT</a>
+            <a href="https://lamboar.github.io/shadowsec/opsec.html">🛡️ OPSEC</a>
+            <a href="https://lamboar.github.io/shadowsec/survival.html">📻 Analog Survival</a>
+          </div>
         </div>
+        <a href="https://lamboar.github.io/shadowsec/mobpriv.html" class="active">📱 Mobile Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/money.html">💵 Financial Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/contact.html">🔗 Contact Us</a>
       </nav>
     </div>
   </header>
-
+  
   <main class="container">
     <h2>Analog Survival – Disappear Without Going Offline</h2>
     <article>
@@ -230,13 +303,21 @@
   </main>
 
   <footer>
-    <p>Created by Anonymous. &copy; 2025</p>
+    <p>Created by छछुंदर. &copy; 2025 ShadowSec</p>
   </footer>
 
   <script>
     function toggleMenu() {
       const nav = document.getElementById("mainNav");
       nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    }
+
+    function toggleDropdown() {
+      const menu = document.getElementById("dropdownMenu");
+      const arrow = document.getElementById("dropdownArrow");
+      const isOpen = menu.style.display === "block";
+      menu.style.display = isOpen ? "none" : "block";
+      arrow.classList.toggle("open", !isOpen);
     }
   </script>
 </body>
