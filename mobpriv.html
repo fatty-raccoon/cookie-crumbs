@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mobile Privacy – Own Your Device | ShadowSec</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #e5e5e5;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #111;
+      color: #f0f0f0;
+      padding: 1.2rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .site-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .menu-toggle {
+      font-size: 1.6rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 1.3rem;
+      right: 1.5rem;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #ccc;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      display: block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #00ffc3;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0;
+      z-index: 999;
+      min-width: 180px;
+      box-shadow: 0 0 10px rgba(0, 255, 195, 0.1);
+    }
+
+    .dropdown-menu a {
+      padding: 0.6rem 1rem;
+      display: block;
+      color: #e5e5e5;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #222;
+      color: #00ffc3;
+    }
+
+    .dropdown-toggle {
+      display: inline-block;
+      margin-left: 0.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .rotate {
+      transform: rotate(180deg);
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        margin-top: 0;
+        position: static;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: none;
+        padding-left: 1rem;
+      }
+    }
+
+    main {
+      padding: 2rem 1.5rem;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 1.6rem;
+      color: #ffffff;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+
+    ul.arrow-list {
+      list-style: none;
+      padding-left: 1.2rem;
+    }
+
+    ul.arrow-list li {
+      margin-bottom: 0.8rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    ul.arrow-list li::before {
+      content: "➤";
+      color: #00ffc3;
+      margin-right: 0.6rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="site-title">ShadowSec</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="mainNav">
+        <a href="https://lamboar.github.io/shadowsec/">🏠 Home</a>
+        <div class="dropdown">
+          <a href="#" id="miniGuidesLink">
+            📚 Mini Guides<span class="dropdown-toggle">▾</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="https://lamboar.github.io/shadowsec/osint.html">🕵️ OSINT</a>
+            <a href="https://lamboar.github.io/shadowsec/opsec.html">🛡️ OPSEC</a>
+            <a href="https://lamboar.github.io/shadowsec/survival.html">📻 Analog Survival</a>
+          </div>
+        </div>
+        <a href="mobile.html" class="active">📱 Mobile Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/money.html">💵 Financial Privacy</a>
+        <a href="https://lamboar.github.io/shadowsec/contact.html">🔗 Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>📱 Mobile Privacy – Own Your Device, Own Your Life</h2>
+
+    <h3>🔐 App Permissions</h3>
+    <ul class="arrow-list">
+      <li>Review permissions for each app manually.</li>
+      <li>Revoke access to location, camera, mic, and storage when not needed.</li>
+      <li>Use tools like Bouncer or permission logs to track permission usage.</li>
+    </ul>
+
+    <h3>📡 Network Controls</h3>
+    <ul class="arrow-list">
+      <li>Use RethinkDNS or NetGuard to control app-level network access.</li>
+      <li>Turn off background data for non-critical apps.</li>
+      <li>Disable Wi-Fi/Bluetooth when not needed to reduce passive leaks.</li>
+    </ul>
+
+    <h3>🧱 App Sandboxing</h3>
+    <ul class="arrow-list">
+      <li>Use Shelter or Island to clone and isolate sensitive apps.</li>
+      <li>Prevent cross-data access by keeping profiles separate.</li>
+      <li>Ensure personal and work environments don’t overlap.</li>
+    </ul>
+
+    <h3>📲 Fresh Phone Setup</h3>
+    <ul class="arrow-list">
+      <li>Start with a clean Android ROM if possible.</li>
+      <li>Avoid signing in to Google or other tracking-heavy accounts.</li>
+      <li>Install verified APKs only from trusted repositories.</li>
+    </ul>
+    <p style="margin-top: 2rem;">
+      <a href="https://lamboar.github.io/shadowsec/mobile-detailed.html" style="color:#00ffc3; text-decoration:none; font-weight:600;">
+       🧠 Curious? Know more in detail about Mobile Privacy →
+      </a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Crafted by छछुंदर. | &copy; 2025 ShadowSec</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("mainNav");
+      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const miniLink = document.getElementById('miniGuidesLink');
+      const dropdownMenu = miniLink.nextElementSibling;
+      const arrow = miniLink.querySelector('.dropdown-toggle');
+
+      miniLink.addEventListener('click', function (e) {
+        if (window.innerWidth < 768) {
+          e.preventDefault();
+          const isOpen = dropdownMenu.style.display === 'flex' || dropdownMenu.style.display === 'block';
+          dropdownMenu.style.display = isOpen ? 'none' : 'block';
+          arrow.classList.toggle('rotate', !isOpen);
+        }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!miniLink.contains(e.target) && !dropdownMenu.contains(e.target) && window.innerWidth < 768) {
+          dropdownMenu.style.display = 'none';
+          arrow.classList.remove('rotate');
+        }
+      });
+    });
+  </script>
+</body>
+    </html>
