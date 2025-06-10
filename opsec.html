@@ -156,6 +156,27 @@
       text-decoration: underline;
     }
 
+    
+    #miniGuidesLink {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none !important;
+    }
+
+    #miniGuidesLink:hover {
+      text-decoration: none;
+    }
+
+    .arrow {
+      display: inline-block;
+      transition: transform 0.4s ease;
+    }
+
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
     footer {
       background-color: #111;
       text-align: center;
@@ -210,7 +231,7 @@
         <a href="https://lamboar.github.io/shadowsec/">🏠 Home</a>
 
         <div class="dropdown">
-          <a href="#" id="miniGuidesLink">📚 Mini Guides ▾</a>
+          <a href="#" id="miniGuidesLink">📚 Mini Guides <span class="arrow">▾</span></a>
           <div class="dropdown-menu">
             <a href="https://lamboar.github.io/shadowsec/osint.html">🕵️ OSINT</a>
             <a href="https://lamboar.github.io/shadowsec/opsec.html" class="active">🛡️ OPSEC</a>
@@ -288,13 +309,17 @@
 
     const dropdownLink = document.getElementById("miniGuidesLink");
     const dropdownMenu = dropdownLink.nextElementSibling;
+    const arrow = dropdownLink.querySelector(".arrow");
 
     dropdownLink.addEventListener("click", function (e) {
       if (window.innerWidth < 768) {
         e.preventDefault();
-        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        const isOpen = dropdownMenu.style.display === "block";
+        dropdownMenu.style.display = isOpen ? "none" : "block";
+        arrow.classList.toggle("rotate", !isOpen);
       }
     });
   </script>
 </body>
-  </html>
+      </html>
+      
