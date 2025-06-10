@@ -199,6 +199,22 @@
         padding-left: 1rem;
       }
     }
+
+    
+    #arrow {
+      display: inline-block;
+      transition: transform 0.4s ease;
+      margin-left: 4px;
+    }
+
+    #arrow.rotated {
+      transform: rotate(180deg);
+    }
+
+    
+    #miniGuidesLink {
+      text-decoration: none !important;
+    }
   </style>
 </head>
 <body>
@@ -210,7 +226,7 @@
         <a href="https://lamboar.github.io/shadowsec/">🏠 Home</a>
 
         <div class="dropdown">
-          <a href="#" id="miniGuidesLink">📚 Mini Guides ▾</a>
+          <a href="#" id="miniGuidesLink">📚 Mini Guides <span id="arrow">▾</span></a>
           <div class="dropdown-menu">
             <a href="https://lamboar.github.io/shadowsec/osint.html" class="active">🕵️ OSINT</a>
             <a href="https://lamboar.github.io/shadowsec/opsec.html">🛡️ OPSEC</a>
@@ -281,13 +297,16 @@
 
     const dropdownLink = document.getElementById("miniGuidesLink");
     const dropdownMenu = dropdownLink.nextElementSibling;
+    const arrow = document.getElementById("arrow");
 
     dropdownLink.addEventListener("click", function (e) {
       if (window.innerWidth < 768) {
         e.preventDefault();
-        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        const isOpen = dropdownMenu.style.display === "block";
+        dropdownMenu.style.display = isOpen ? "none" : "block";
+        arrow.classList.toggle("rotated", !isOpen);
       }
     });
   </script>
 </body>
-  </html>
+    </html>
