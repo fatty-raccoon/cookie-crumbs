@@ -20,7 +20,7 @@
     }
     .back-link {
       display: inline-block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.7rem;
       color: #00ffc3;
       font-weight: 600;
       text-decoration: none;
@@ -76,16 +76,6 @@
     button:hover {
       background-color: rgba(0, 255, 195, 0.1);
     }
-    .confirmation {
-      background: #111;
-      border: 1px solid #333;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      color: #00ffc3;
-      margin-top: 1rem;
-      text-align: center;
-      display: none;
-    }
     footer {
       background-color: #111;
       text-align: center;
@@ -99,28 +89,24 @@
 </head>
 <body>
   <main class="container">
-    <a class="back-link" href="https://lamboar.github.io/shadowsec/">← Back to Home</a>
+    <a class="back-link" href="https://lamboar.github.io/shadowsec/">⬅️ Back to Home</a>
     <h2>📨 Contact Us</h2>
 
-    <form id="contactForm" action="https://usebasin.com/f/29beafa5cc14" method="POST">
-      <label for="name">Name</label>
+    <form id="contactForm">
+      <label for="name">🤔 Name</label>
       <input type="text" id="name" name="name" placeholder="Your Name" required />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      <label for="email">📨 Email (optional)</label>
+      <input type="email" id="email" name="email" placeholder="spam emails bhejunga 😋" />
 
-      <label for="phone">Phone (optional)</label>
-      <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+      <label for="phone">📞 Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="raat me baat karenge 😝" required />
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+      <label for="message">Describe your Message</label>
+      <textarea id="message" name="message" placeholder="koi sawaal..? 👀" required></textarea>
 
       <button type="submit">Send Message</button>
     </form>
-
-    <div class="confirmation" id="confirmationMsg">
-      ✅ Message sent successfully. We'll get back to you soon.
-    </div>
   </main>
 
   <footer>
@@ -129,25 +115,25 @@
 
   <script>
     const form = document.getElementById('contactForm');
-    const confirmation = document.getElementById('confirmationMsg');
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
+      try {
+        const response = await fetch("https://usebasin.com/f/29beafa5cc14", {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
 
-      if (response.ok) {
-        form.reset();
-        confirmation.style.display = 'block';
-        confirmation.innerText = '✅ Message sent successfully. We\'ll get back to you soon.';
-      } else {
-        confirmation.innerText = '❌ Something went wrong. Try again later.';
-        confirmation.style.display = 'block';
+        if (response.ok) {
+          window.location.href = "https://lamboar.github.io/shadowsec/thank-youuu.html"; 
+        } else {
+          alert("❌ Something went wrong. Please try again later.");
+        }
+      } catch (error) {
+        alert("❌ Error submitting form. Check your connection.");
       }
     });
   </script>
