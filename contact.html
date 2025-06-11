@@ -6,25 +6,18 @@
   <title>Contact Us | ShadowSec</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #0e0e0e;
       color: #e5e5e5;
       line-height: 1.6;
     }
-
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
-
     .back-link {
       display: inline-block;
       margin-bottom: 1.5rem;
@@ -32,32 +25,25 @@
       font-weight: 600;
       text-decoration: none;
     }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
+    .back-link:hover { text-decoration: underline; }
     h2 {
       font-size: 2rem;
       margin-bottom: 0.75rem;
       color: #ffffff;
       text-align: center;
     }
-
     form {
       background-color: #111;
       padding: 2rem;
       border-radius: 0.75rem;
       box-shadow: 0 0 10px rgba(0, 255, 195, 0.1);
     }
-
     label {
       display: block;
       margin-bottom: 0.5rem;
       color: #ccc;
       font-weight: 600;
     }
-
     input, textarea {
       width: 100%;
       padding: 0.7rem;
@@ -68,18 +54,15 @@
       color: #e5e5e5;
       transition: border 0.3s, box-shadow 0.3s;
     }
-
     input:focus, textarea:focus {
       border-color: #00ffc3;
       outline: none;
       box-shadow: 0 0 5px rgba(0, 255, 195, 0.6);
     }
-
     textarea {
       resize: vertical;
       min-height: 120px;
     }
-
     button {
       background: transparent;
       color: #00ffc3;
@@ -90,11 +73,9 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-
     button:hover {
       background-color: rgba(0, 255, 195, 0.1);
     }
-
     .confirmation {
       background: #111;
       border: 1px solid #333;
@@ -105,7 +86,6 @@
       text-align: center;
       display: none;
     }
-
     footer {
       background-color: #111;
       text-align: center;
@@ -122,7 +102,7 @@
     <a class="back-link" href="https://lamboar.github.io/shadowsec/">← Back to Home</a>
     <h2>📨 Contact Us</h2>
 
-    <form id="contactForm" action="https://formspree.io/f/yourFormID" method="POST">
+    <form id="contactForm" action="https://usebasin.com/f/29beafa5cc14" method="POST">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" placeholder="Your Name" required />
 
@@ -158,14 +138,13 @@
       const response = await fetch(form.action, {
         method: "POST",
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {
         form.reset();
         confirmation.style.display = 'block';
+        confirmation.innerText = '✅ Message sent successfully. We\'ll get back to you soon.';
       } else {
         confirmation.innerText = '❌ Something went wrong. Try again later.';
         confirmation.style.display = 'block';
@@ -173,4 +152,4 @@
     });
   </script>
 </body>
-      </html>
+  </html>
