@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notices | ShadowSec</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #e5e5e5;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
+
+    .top-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem; /* Added more spacing */
+    }
+
+    .btn {
+      background-color: transparent;
+      color: #00ffc3;
+      border: 2px solid #00ffc3;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: rgba(0, 255, 195, 0.1);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00ffc3;
+      margin-bottom: 0.5rem;
+      font-family: 'Silkscreen', sans-serif;
+    }
+
+    .timestamp {
+      font-size: 0.95rem;
+      color: #999;
+      margin-bottom: 1.5rem;
+    }
+
+    ul.notice-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.notice-list li {
+      background-color: #111;
+      border-left: 4px solid #00ffc3;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 255, 195, 0.05);
+    }
+
+    ul.notice-list li strong {
+      color: #00ffc3;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .archive-toggle {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: none;
+      color: #00ffc3;
+      border: 2px solid #00ffc3;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .archived {
+      display: none;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #222;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-buttons">
+    <a href="https://lamboar.github.io/shadowsec" class="btn">⬅️ Back</a>
+    <a href="#" class="btn">📁 Archived Notices</a>
+  </div>
+
+  <h1>🔔 Notices & Updates</h1>
+  <p class="timestamp">🕒 Last updated: <strong>June 12, 2025 @ 19:06</strong></p>
+
+  <ul class="notice-list">
+    <!-- latest wale idher likhne h sabse upar karke -->
+    <li>
+      <strong>June 12, 2025;</strong>
+      🔒 We have added a Privacy Tools page link in the hamburger menu. The page is still under construction and will be coming soon! Stay tuned!
+    </li>
+    <li>
+      <strong>June 12, 2025;</strong>
+      Hurray! We now have an improved, pixelated site title and font.
+    </li>
+    
+    <li>
+      <strong>June 11, 2025:</strong>
+      📜 Notices page is now live under the homepage ham-menu. You’ll see all changes, updates, and what's coming soon—right here.
+    </li>
+
+    <li>
+      <strong>June 11, 2025:</strong>
+      🛡️ OPSEC and Mobile Privacy pages are fully redesigned with updated examples and tools.
+    </li>
+
+    <li>
+      <strong>June 10, 2025:</strong>
+      😎 ShadowSec homepage now includes a smarter hero section and better guide tiles.
+    </li>
+
+    <!-- Older notices (purane notice yaha se aage likhna h) -->
+    <div class="archived" id="archivedNotices">
+      <li>
+        <strong>June 9, 2025:</strong>
+      📞 We have added a Contact us page to our site, incase users have concerns or want to reach out to us for specific reasons.
+      </li>
+      <li>
+        <strong>June 9, 2025:</strong>
+        🎉 Welcome to the new Shadowsec Page. Explore all the privacy and security guides tailored for everyone.
+      </li>
+    </div>
+  </ul>
+
+  <button class="archive-toggle" onclick="toggleArchive()">Show Older Notices ▾</button>
+
+  <footer>
+   Crafted by छछुंदर | &copy; 2025 ShadowSec. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleArchive() {
+      const archive = document.getElementById("archivedNotices");
+      const btn = document.querySelector(".archive-toggle");
+      const isVisible = archive.style.display === "block";
+
+      archive.style.display = isVisible ? "none" : "block";
+      btn.textContent = isVisible ? "Show Older Notices ▾" : "Hide Older Notices ▴";
+    }
+  </script>
+
+</body>
+  </html>
