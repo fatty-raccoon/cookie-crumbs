@@ -1,0 +1,1 @@
+This is a mini website created just out of curiosity, focusing on core privacy and security topics. This website was created to actually guide some beginners who don't understand the internet properly. It mainly covers how to live private in a world full of spies and trackers.
