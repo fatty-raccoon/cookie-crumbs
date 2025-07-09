@@ -32,7 +32,7 @@ Whether you're just curious or serious about digital sovereignty, this site is b
 
 ## 📂 Project Structure
 /index.html - main landing page
-other html files - Guide pages, writeups, or topic breakdowns
+/other html files - Guide pages, writeups, or topic breakdowns
 /LICENSE - Guides and text under Creative Commons (CC BY 4.0)
 
 ---
@@ -75,12 +75,19 @@ This project is **dual-licensed** to protect both code and content appropriately
 Still growing. More guides, pages, and content coming soon.
 
 ---
-<p align="left">
+---
+
+<p align="center">
   <a href="https://opensource.org/licenses/MIT" target="_blank">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
   </a>
+  &nbsp; &nbsp;
   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
-    <img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="CC BY 4.0">
+    <img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="CC BY 4.0 License">
   </a>
+</p>
+
+<p align="center">
+  <sub>Code licensed under MIT. Content licensed under Creative Commons Attribution 4.0.</sub>
 </p>
 
