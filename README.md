@@ -58,11 +58,29 @@ You can:
 
 ## 📜 Licensing
 
-• Code: Licensed under the MIT License — free to use, modify, or redistribute.
-• Content: All written guides, markdowns, and educational material are under CC BY 4.0 — you can reuse, but must give credit
+This project is **dual-licensed** to protect both code and content appropriately.
+
+- 🔧 **Code (HTML/CSS/Structure):**  
+  Licensed under the [MIT License](./LICENSE) — you are free to use, modify, and redistribute the code with attribution.
+
+- 📝 **Content (Guides, Writeups, Markdown):**  
+  Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE-CONTENT) — you're allowed to share, remix, or adapt with proper credit.
+
+> ✅ You **can use this for personal, educational, or commercial** purposes — just don’t remove the credits.
 
 ---
 
 ## 🔘 Status
 
 Still growing. More guides, pages, and content coming soon.
+
+---
+<p align="left">
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
+  </a>
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+    <img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="CC BY 4.0">
+  </a>
+</p>
+
