@@ -52,7 +52,7 @@ You can:
 - Clone and host it on your own server or offline browser
 - Use it as a beginner’s reference
 - Add your own custom content (MIT/CC BY allows it)
-- This website is also hosted on GitHub pages. You can visit it at lamboar.github.io/shadowsec/
+- This website is also hosted on GitHub pages. You can [view the live site here](https://lamboar.github.io/shadowsec/).
 
 ---
 
