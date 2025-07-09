@@ -31,9 +31,16 @@ Whether you're just curious or serious about digital sovereignty, this site is b
 ---
 
 ## 📂 Project Structure
-/index.html - main landing page
-/other html files - Guide pages, writeups, or topic breakdowns
-/LICENSE - Guides and text under Creative Commons (CC BY 4.0)
+/index.html — main landing page
+
+/contact.html — contact us page
+
+/Other .html files — Guide pages, writeups, or topic breakdowns
+
+/LICENSE — MIT License (read more below 👇🏽)
+
+/LICENSE-CONTENT — Guides and text under Creative Commons (CC BY 4.0)
+
 
 ---
 
