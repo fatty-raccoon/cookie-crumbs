@@ -82,17 +82,6 @@ This project is **dual-licensed** to protect both code and content appropriately
 Still growing. More guides, pages, and content coming soon.
 
 ---
----
-
-<p align="center">
-  <a href="https://opensource.org/licenses/MIT" target="_blank">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
-  </a>
-  &nbsp; &nbsp;
-  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
-    <img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="CC BY 4.0 License">
-  </a>
-</p>
 
 <p align="center">
   <sub>Code licensed under MIT. Content licensed under Creative Commons Attribution 4.0.</sub>
