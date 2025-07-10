@@ -35,3 +35,70 @@ The tone is playful. The content is serious.
 ---
 
 ## 📁 Project Structure
+
+/index.html — the homepage. ("start eating 🍪" button leads to core guides)
+/[topic].html — pages like opsec.html, osint.html, etc
+/contact.html — how to reach the baker (aka the dev)
+
+---
+
+## 📜 Licensing
+
+This project is **dual-licensed**:
+
+- 🧾 **Code (HTML/CSS):**  
+  MIT License — Free to use, modify, or redistribute with attribution
+
+- 📘 **Content (Guides, Pages, Words):**  
+  CC BY 4.0 — Use it however you like, just give credit.
+
+> 🍪 Use it, remix it, bake your own version — just don’t steal the flavor without attribution.
+
+---
+
+## ⚙️ Tech Stack
+
+- 🍪 Pure HTML5  
+- 🎨 Some CSS3, no frameworks, no JS bloat  
+- 🔐 100% tracker-free  
+- 📜 Markdown used for content drafts before converting to HTML  
+- ☠️ No Google Analytics, no cookie banners, no hidden surprises
+
+---
+
+## 🚀 How to Use
+
+You can:
+- Clone it, host it, tweak it  
+- Turn it into your own version of a privacy guide  
+- Use it offline as a ready-to-read manual  
+- Build your own version of cookie-crumbs for your community or org
+
+> 🔗 Live version: [cookie-crumbs on GitHub Pages](https://fatty-raccoon.github.io/cookie-crumbs)
+
+---
+
+## 📜 Licensing
+
+This project is **dual-licensed**:
+
+- 🧾 **Code (HTML/CSS):**  
+  MIT License — Free to use, modify, or redistribute with attribution
+
+- 📘 **Content (Guides, Pages, Words):**  
+  CC BY 4.0 — Use it however you like, just give credit.
+
+> 🍪 Use it, remix it, bake your own version — just don’t steal the flavor without attribution.
+
+---
+
+## 📈 Status
+
+oven still warm.  
+More pages, topics, and crunchy bites coming soon.
+
+---
+
+<p align="center">
+  <sub>🍪 Code licensed under MIT | Content under CC BY 4.0 | Made with cookies, not trackers.</sub>
+</p>
