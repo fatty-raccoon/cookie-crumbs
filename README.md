@@ -1,89 +1,37 @@
-# 🛡️ The Shadowsec Privacy Site
+# 🍪 The Cookie-Crumbs Privacy Site
 
-![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
-![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
-![Built with HTML](https://img.shields.io/badge/Built%20With-HTML-orange)
-![Powered by Privacy](https://img.shields.io/badge/Focus-Online%20Privacy-black)
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)  
+![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)  
+![Built with HTML](https://img.shields.io/badge/Built%20With-HTML-orange)  
+![Privacy-First](https://img.shields.io/badge/Zero%20Trackers-Hell%20Yeah-black)
 
-> **"In a world full of surveillance, clarity is resistance."**
-
----
-
-## 🔍 What is This?
-
-This is a **minimal privacy-first website** built purely out of curiosity and necessity.  
-It offers straight-to-the-point guidance for those who:
-- Don’t understand the internet’s tracking and surveillance structure
-- Want to live **private and secure** in a world full of hidden observers
+> **"Not all cookies are tasteless, But most browser ones are."**
 
 ---
 
-## 🧠 What's Inside?
+## 🍫 What Is This?
 
-- 🛰️ Internet privacy basics  
-- 🔐 Phone-level OPSEC practices  
-- 🧅 Browser and network security  
-- 📵 Mindset for digital minimalism  
-- 🚫 Avoiding trackers, spyware, data leaks
+**cookie-crumbs** is a **raw, honest, and minimal site** for people who actually care about privacy — not in theory, but in **real use**.  
+No fluff. No analytics. No corporate sugarcoating.
 
-Whether you're just curious or serious about digital sovereignty, this site is built to **give real-world answers**.
-
----
-
-## 📂 Project Structure
-/index.html — main landing page
-
-/contact.html — contact us page
-
-/Other .html files — Guide pages, writeups, or topic breakdowns
-
-/LICENSE — MIT License (read more below 👇🏽)
-
-/LICENSE-CONTENT — Guides and text under Creative Commons (CC BY 4.0)
-
+You’ll find content for:
+- People tired of being tracked online  
+- Those curious about digital self-defense  
+- Beginners who don’t want to read 50 blog posts to understand what a VPN does  
+- Folks who value honesty, minimalism, and not being a product
 
 ---
 
-## 🛠️ Tech Stack
+## 📦 What’s Inside?
 
-- 💻 HTML5 (vanilla)
-- 🎨 CSS3
-- 📜 Markdown (for writeups before conversion)
-- 🔐 Privacy-conscious design choices (no trackers, no analytics, no nonsense)
+- 🍩 Internet privacy, broken down with real-world logic  
+- 📱 Phone OPSEC and mobile defenses  
+- 🧠 Offline thinking and analog backups  
+- 🧅 Onion-laced browser & network practices  
+- ❌ Straight methods to dodge tracking, fingerprinting, and digital profiling
 
----
-
-## 🚀 How to Use
-
-You can:
-- Clone and host it on your own server or offline browser
-- Use it as a beginner’s reference
-- Add your own custom content (MIT/CC BY allows it)
-- This website is also hosted on GitHub pages. You can [view the live site here](https://lamboar.github.io/shadowsec/).
+The tone is playful. The content is serious.
 
 ---
 
-## 📜 Licensing
-
-This project is **dual-licensed** to protect both code and content appropriately.
-
-- 🔧 **Code (HTML/CSS/Structure):**  
-  Licensed under the [MIT License](./LICENSE) — you are free to use, modify, and redistribute the code with attribution.
-
-- 📝 **Content (Guides, Writeups, Markdown):**  
-  Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE-CONTENT) — you're allowed to share, remix, or adapt with proper credit.
-
-> ✅ You **can use this for personal, educational, or commercial** purposes — just don’t remove the credits.
-
----
-
-## 🔘 Status
-
-Still growing. More guides, pages, and content coming soon.
-
----
-
-<p align="center">
-  <sub>Code licensed under MIT. Content licensed under Creative Commons Attribution 4.0.</sub>
-</p>
-
+## 📁 Project Structure
