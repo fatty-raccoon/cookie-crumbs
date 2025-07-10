@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn - cookie-crumbs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000; /* AMOLED */
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Slackey', cursive;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+main {
+  flex: 1;
+  padding: 3rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtext {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+    
+.topic-box {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 1.5rem;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.topic-row {
+  padding: 1rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: #f9e8d2;
+  transition: background 0.3s;
+  border-bottom: 1.5px solid #ffffff;
+}
+
+.topic-row:last-child {
+  border-bottom: none;
+}
+
+.topic-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  }
+
+    .topic-container {
+  max-width: 500px;      /* Adjust this value as needed */
+  margin: 0 auto;         /* Center horizontally */
+  padding: 0 1rem;
+}
+
+.topic-box {
+  border: 2px solid #f9e8d2;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
+    .hint-footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+      margin-bottom: 0.2rem;
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      padding: 1.5rem 1rem 1.5rem;
+      background-color: #000;
+      border-top: 1px solid #111;
+    }
+
+    /* Massive Falling Cookie 🍪 */
+#cookieDrop {
+  position: fixed;
+  top: -1000px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 600px;
+  opacity: -5;
+  z-index: 9999;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.rotate-wobble {
+  animation: bigSpinFall 2.3s ease-in-out forwards;
+}
+
+@keyframes bigSpinFall {
+  0% {
+    top: -1000px;
+    opacity: -5;
+    transform: translateX(-50%) rotate(0deg) scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(60deg) scale(1.05);
+  }
+  50% {
+    transform: translateX(-50%) rotate(-45deg) scale(1.1);
+  }
+  100% {
+    top: 115vh;
+    opacity: 0;
+    transform: translateX(-50%) rotate(720deg) scale(1.15);
+  }
+      }
+
+    @media (max-width: 480px) {
+      .tile {
+        font-size: 0.9rem;
+        padding: 1rem;
+      }
+      
+      .back-wrapper {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+#backButton {
+  background: transparent;
+  color: #f9e8d2;
+  border: 2px dashed #f9e8d2;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+#backButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.back-text {
+  transition: opacity 0.4s ease;
+}
+
+.cookie-roll {
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  font-size: 1.3rem;
+  opacity: 0;
+  transition: left 1s ease, opacity 0.6s ease, transform 1s ease;
+    }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>start learning 🍪</h2>
+    <p class="subtext">pick your cookie, bite into the topic.</p>
+    
+  <div class="topic-container">
+  <div class="topic-box">
+  <div class="topic-row" onclick="goTo('osint.html')">🕵️ OSINT</div>
+  <div class="topic-row" onclick="goTo('opsec.html')">🛡️ OPSEC</div>
+  <div class="topic-row" onclick="goTo('analog.html')">📻 Analog Survival</div>
+  <div class="topic-row" onclick="goTo('mobpriv.html')">📱 Mobile Privacy</div>
+  <div class="topic-row" onclick="goTo('money.html')">💵 Financial Privacy</div>
+  <div class="topic-row" onclick="goTo('https://fatty-raccoon.github.io/construction-pages/homepage.html')">🛠️ Privacy & Security Tools</div>
+  </div>
+  </div> 
+    <div class="back-wrapper">
+  <button id="backButton">
+    <span class="back-text">← Back</span>
+    <span class="cookie-roll">🍪</span>
+  </button>
+    </div>
+  </main>
+
+  <!-- 🍪 The cookie dropper -->
+  <div id="cookieDrop">🍪</div>
+
+  <div class="hint-footer">🍪 psst... check the cookies before they’re eaten.</div>
+
+  <footer>
+    <p>crafted by cookie eater | &copy; 2025 cookie-crumbs</p>
+  </footer>
+<script>
+  const backBtn = document.getElementById("backButton");
+  const backText = backBtn.querySelector(".back-text");
+  const cookieRoll = backBtn.querySelector(".cookie-roll");
+
+  backBtn.addEventListener("click", () => {
+    backText.style.opacity = "0";
+    cookieRoll.style.left = "50%";
+    cookieRoll.style.opacity = "1";
+    cookieRoll.style.transform = "translateX(-50%) rotate(720deg)";
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1500);
+  });
+</script>
+<script>
+  function goTo(href) {
+    const cookieDrop = document.getElementById('cookieDrop');
+    cookieDrop.classList.remove('rotate-wobble');
+    void cookieDrop.offsetWidth;
+    cookieDrop.classList.add('rotate-wobble');
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 1650);
+  }
+</script>
+</body>
+        </html>
